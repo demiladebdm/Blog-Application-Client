@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-import bgImg from "../../assets/blog.png";
+// import bgImg from "../../assets/blog.png";
 import "./Home.css";
 import Newsletter from "../../components/Newsletter/Newsletter";
 
 const Home = () => {
+  const bgImg = "https://res.cloudinary.com/dlmd26faz/image/upload/v1697238685/Blog/Static/blog_lihsdd.png";
   const [showPopup, setShowPopup] = useState(false);
 
   // const url = "http://localhost:5000/api";
