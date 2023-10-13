@@ -6,7 +6,7 @@ import "./Authentication.css";
 function Register() {
   const navigate = useNavigate();
   // const baseUrl = "http://localhost:5000/api";
-  const baseUrl = "https://blog-application-newapi.vercel.app/api";
+  const baseUrl = process.env.REACT_APP_API_URL;
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
