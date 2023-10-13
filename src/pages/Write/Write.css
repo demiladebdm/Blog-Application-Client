@@ -1,0 +1,111 @@
+.write {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(100vh - 14vh);
+  background: var(--theme);
+  color: var(--white);
+}
+
+.write__form {
+  /* border: 3px solid green; */
+  width: 90%;
+  height: 100%;
+  /* border: none !important; */
+}
+
+.write__form__head {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  margin: 1rem 0.5rem;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.write__title__input {
+  /* height: 3rem; */
+  width: 50%;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  border: none;
+}
+
+.write__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  border: 1px solid;
+  font-size: 20px;
+  color: gray;
+  cursor: pointer;
+  margin-right: 1.5rem;
+}
+
+.write__form__middle {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  text-align: center;
+  gap: 0.8rem;
+  margin: 0.5rem 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.write__form__middle label {
+  font-size: 1.3rem;
+}
+
+.write__form__middle select {
+  font-size: 1.2rem;
+  padding-left: 0.5rem;
+  height: 1.8rem;
+  width: 12rem;
+  border-top: 0.2rem;
+  border-left: 0.2rem;
+  border-right: 0.2rem;
+  border-color: gray;
+}
+
+.write__form__middle select option {
+  font-size: 1.2rem;
+}
+
+.write__form__bottom {
+  /* border: 3px solid red; */
+  width: 100%;
+  height: 25rem;
+  margin: 1rem 0 0.2rem 0;
+  border: none;
+}
+
+.write__form__button {
+  height: 2.2rem;
+  /* margin-top: 2rem; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.write__form__button button {
+  cursor: pointer;
+  width: 20rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: var(--primary);
+  color: var(--white);
+  border-radius: 0.4em;
+  border: none;
+}
