@@ -52,10 +52,15 @@ const Write = () => {
     console.log("cloud-form", formData);
     console.log("cloud-name", cloudinaryName);
 
+    const cloudinaryUploadUrl = process.env.REACT_APP_CLOUDINARY_UPLOAD_URL;
+
+    if (!cloudinaryUploadUrl) {
+      console.error("Cloudinary upload URL is not defined.");
+      return;
+    }
+    console.log("url", cloudinaryUploadUrl);
     try {
-      const cloudinaryUploadUrl =
-        "https://api.cloudinary.com/v1_1/dlmd26faz/image/upload";
-      console.log("url", cloudinaryUploadUrl);
+      console.log("url-inside", cloudinaryUploadUrl);
       const cloudinaryResponse = await fetch(cloudinaryUploadUrl, {
         method: "POST",
         body: formData,
