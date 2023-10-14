@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
 
 import "./Newsletter.css";
-import newsImg from "../../assets/newsletter.jpg";
-import newsImg2 from "../../assets/newsletter2.jpg";
-import newsImg3 from "../../assets/newsletter3.jpg";
-import newsImg4 from "../../assets/newsletter4.jpg";
+// import newsImg from "../../assets/newsletter.jpg";
+// import newsImg2 from "../../assets/newsletter2.jpg";
+// import newsImg3 from "../../assets/newsletter3.jpg";
+// import newsImg4 from "../../assets/newsletter4.jpg";
 
 const Newsletter = ({ showPopup, handleClosePopup }) => {
   //   const [showPopup, setShowPopup] = useState(false);
   const [email, setEmail] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-
+  
   // const url = "http://localhost:5000/api";
   const url = process.env.REACT_APP_API_URL;
+  const newsImg = "https://res.cloudinary.com/dlmd26faz/image/upload/v1697239325/Blog/Static/newsletter_ohsnk4.jpg";
 
   //   const handleClosePopup = () => {
   //     setShowPopup(false);

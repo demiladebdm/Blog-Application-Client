@@ -1,8 +1,9 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactQuill from "react-quill";
 
 import "react-quill/dist/quill.snow.css";
 import "./Editor.css"
+import Loader from "../Loader/Loader";
 
 const Editor = ({ value, onChange }) => {
   const modules = {
@@ -45,15 +46,17 @@ const Editor = ({ value, onChange }) => {
 
   return (
     <section className="editor">
-      <ReactQuill
-        value={value}
-        onChange={onChange}
-        theme={"snow"}
-        modules={modules}
-        formats={formats}
-        placeholder="Your new post..."
-        className="write__input write__text"
-      />
+      <Suspense fallback={<Loader />}>
+        <ReactQuill
+          value={value}
+          onChange={onChange}
+          theme={"snow"}
+          modules={modules}
+          formats={formats}
+          placeholder="Your new post..."
+          className="write__input write__text"
+        />
+      </Suspense>
     </section>
   );
 };

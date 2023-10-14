@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 
 import "./Write.css";
-import Editor from "../../components/Editor/Editor";
+import Loader from "../../components/Loader/Loader";
+const Editor = lazy(() => import("../../components/Editor/Editor"));
 
 const Write = () => {
-  const [file, setFile] = useState("");
   const [cloudinaryUrl, setCloudinaryUrl] = useState("");
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
@@ -14,11 +14,9 @@ const Write = () => {
 
   // const url = "http://localhost:5000/api";
   const url = process.env.REACT_APP_API_URL;
-
   const cloudinaryName = process.env.REACT_APP_CLOUDINARY_NAME;
 
   useEffect(() => {
-    // Fetch categories from the API
     const fetchCategories = async () => {
       try {
         const response = await fetch(url + "/categories");
@@ -109,62 +107,67 @@ const Write = () => {
 
   return (
     <section className="write">
-      <form className="write__form" onSubmit={handleSubmit}>
-        <section className="write__form__head">
-          <span>Image</span>
-          <label htmlFor="file__input">
-            <i className="write__icon fas fa-plus"></i>
-          </label>
+      <Suspense fallback={<Loader />}>
+        <form className="write__form" onSubmit={handleSubmit}>
+          <section className="write__form__head">
+            <span>Image</span>
+            <label htmlFor="file__input">
+              <i className="write__icon fas fa-plus"></i>
+            </label>
 
-          <input
-            type="file"
-            id="file__input"
-            style={{ display: "none" }}
-            onChange={handleFileChange}
-          />
+            <input
+              type="file"
+              id="file__input"
+              style={{ display: "none" }}
+              onChange={handleFileChange}
+            />
 
-          <input
-            className="write__title__input"
-            type="text"
-            placeholder="Title"
-            autoFocus={true}
-            onChange={(e) => setTitle(e.target.value)}
-          ></input>
-        </section>
+            <input
+              className="write__title__input"
+              type="text"
+              placeholder="Title"
+              autoFocus={true}
+              onChange={(e) => setTitle(e.target.value)}
+            ></input>
+          </section>
 
-        <section className="write__form__middle">
-          <label htmlFor="categories">Choose a category:</label>
-          <select
-            name="categories"
-            id="categories"
-            onChange={(e) => setCategories(e.target.value)}
-            value={categories}
-          >
-            <option value="" disabled style={{ color: "red" }}>
-              Select a category
-            </option>
-            {categoryOptions.map((category) => (
-              <option
-                key={category._id}
-                value={category.name}
-                className="catValue"
-              >
-                {category.name.charAt(0).toUpperCase() + category.name.slice(1)}
+          <section className="write__form__middle">
+            <label htmlFor="categories">Choose a category:</label>
+            <select
+              name="categories"
+              id="categories"
+              onChange={(e) => setCategories(e.target.value)}
+              value={categories}
+            >
+              <option value="" disabled style={{ color: "red" }}>
+                Select a category
               </option>
-            ))}
-          </select>
-        </section>
+              {categoryOptions.map((category) => (
+                <option
+                  key={category._id}
+                  value={category.name}
+                  className="catValue"
+                >
+                  {category.name.charAt(0).toUpperCase() +
+                    category.name.slice(1)}
+                </option>
+              ))}
+            </select>
+          </section>
 
-        <section className="write__form__bottom">
-          <Editor value={desc} onChange={setDesc} />
-        </section>
+          <section className="write__form__bottom">
+            <Suspense fallback={<Loader />}>
+              <Editor value={desc} onChange={setDesc} />
+            </Suspense>
+          </section>
 
-        <section className="write__form__button">
-          <button type="submit" onClick={handleSubmit}>
-            Publish
-          </button>
-        </section>
-      </form>
+          <section className="write__form__button">
+            <button type="submit" onClick={handleSubmit}>
+              Publish
+            </button>
+          </section>
+        </form>
+      </Suspense>
     </section>
   );
 };

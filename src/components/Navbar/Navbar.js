@@ -2,16 +2,17 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { FaAngleDown } from "react-icons/fa";
-import Logo from "../../assets/logo.png";
+// import Logo from "../../assets/logo.png";
 import "./Navbar.css";
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [categories, setCategories] = useState("");
   const [categoryOptions, setCategoryOptions] = useState([]);
-
+  
   // const url = "http://localhost:5000/api";
   const url = process.env.REACT_APP_API_URL;
+  const Logo = "https://res.cloudinary.com/dlmd26faz/image/upload/v1697239340/Blog/Static/logo_afxtss.png";
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);

@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 import "./Authentication.css";
+import Loader from "../../components/Loader/Loader";
 
 function Register() {
   const navigate = useNavigate();
@@ -64,51 +65,51 @@ function Register() {
 
   return (
     <section className="login">
-      <section className="login__card">
-        <section className="login__title">
-          <h1>Register</h1>
-        </section>
-        <section className="login__content">
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => {
-                setUsername(e.target.value);
-              }}
-              placeholder="Username"
-            />
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-              placeholder="Email"
-            />
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-              placeholder="Password"
-            />
-            {/* <input type="submit" value="Register" /> */}
-            <button type="submit" disabled={loading}>
-              {loading ? "Registering..." : "Register"}
-            </button>
-            {error && <p className="error__message">{error}</p>}
-          </form>
-        </section>
+      <Suspense fallback={<Loader />}>
+        <section className="login__card">
+          <section className="login__title">
+            <h1>Register</h1>
+          </section>
+          <section className="login__content">
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
+                placeholder="Username"
+              />
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+                placeholder="Email"
+              />
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+                placeholder="Password"
+              />
+              <button type="submit" disabled={loading}>
+                {loading ? "Registering..." : "Register"}
+              </button>
+              {error && <p className="error__message">{error}</p>}
+            </form>
+          </section>
 
-        <section className="login__bottom">
-          {/* <p>OR</p> */}
-          <Link to="/login" className="login__link">
-            Login Page
-          </Link>
+          <section className="login__bottom">
+            <Link to="/login" className="login__link">
+              Login Page
+            </Link>
+          </section>
         </section>
-      </section>
+      </Suspense>
     </section>
   );
 }
