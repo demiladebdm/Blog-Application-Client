@@ -22,9 +22,8 @@ function App() {
   return (
     <section className="App">
       <Router>
+        <Navbar />
         <Suspense fallback={<Loader />}>
-          <Navbar />
-
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/blog" element={<Blog />}></Route>
