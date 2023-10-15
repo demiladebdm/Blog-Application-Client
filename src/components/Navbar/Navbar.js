@@ -53,9 +53,11 @@ const Navbar = () => {
     const fetchCategories = async () => {
       try {
         const response = await httpClient("/categories", userToken);
+
         if (!response) {
           throw new Error("Failed to fetch categories");
         }
+
         const data = await response;
         setCategoryOptions(data);
       } catch (error) {
@@ -64,7 +66,7 @@ const Navbar = () => {
     };
 
     fetchCategories();
-  }, []);
+  }, [userToken]);
 
   return (
     // <nav className={`navbar ${showNavbar ? "show" : ""}`}>

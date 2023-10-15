@@ -8,24 +8,24 @@ const httpClient = async (url, userToken, options = {}) => {
       ...options,
       headers: {
         ...options.headers,
-        ...authService.setAuthHeader(userToken).headers,
+        // ...authService.setAuthHeader(userToken).headers,
+        ...(userToken ? authService.setAuthHeader(userToken).headers : null),
       },
     });
 
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+      throw new Error(`Not Authorized! Status: ${response.status}`);
     }
 
-    
     //   return response.json();
     const contentType = response.headers.get("Content-Type");
     if (contentType && contentType.includes("application/json")) {
-        return response.json();
+      return response.json();
     } else {
       throw new Error("Response is not in JSON format");
     }
   } catch (error) {
-    console.error("Error in httpClient:", error);
+    console.error("Error in httpClient:", error.message);
     throw error;
   }
 };

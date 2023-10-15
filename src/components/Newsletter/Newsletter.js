@@ -1,20 +1,28 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import toast from "react-hot-toast";
 
 import "./Newsletter.css";
+import httpClient from "../../service/httpClient";
 // import newsImg from "../../assets/newsletter.jpg";
 // import newsImg2 from "../../assets/newsletter2.jpg";
 // import newsImg3 from "../../assets/newsletter3.jpg";
 // import newsImg4 from "../../assets/newsletter4.jpg";
 
 const Newsletter = ({ showPopup, handleClosePopup }) => {
+  // const userState = useSelector((state) => state.user);
   //   const [showPopup, setShowPopup] = useState(false);
   const [email, setEmail] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  
+
+  // Access the user's token from the Redux store
+  const userToken = useSelector((state) => state.user.userInfo?.token);
+
   // const url = "http://localhost:5000/api";
   const url = process.env.REACT_APP_API_URL;
-  const newsImg = "https://res.cloudinary.com/dlmd26faz/image/upload/v1697239325/Blog/Static/newsletter_ohsnk4.jpg";
+  const newsImg =
+    "https://res.cloudinary.com/dlmd26faz/image/upload/v1697239325/Blog/Static/newsletter_ohsnk4.jpg";
 
   //   const handleClosePopup = () => {
   //     setShowPopup(false);
@@ -39,24 +47,29 @@ const Newsletter = ({ showPopup, handleClosePopup }) => {
         return;
       }
 
-      const response = await fetch(url + "/emails", {
+      const formData = { email };
+
+      const response = await httpClient("/emails", userToken, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify(formData),
       });
 
-      if (!response.ok) {
+      if (!response) {
         throw new Error("Network response was not ok");
       }
 
-      const data = await response.json();
+      const data = await response;
       console.log("Email creation successful:", data);
+
+      toast.success("Subscribed Successfully");
 
       handleClosePopup();
     } catch (error) {
       console.error("Error creating email:", error);
+      toast.error(error.message);
     }
   };
 
