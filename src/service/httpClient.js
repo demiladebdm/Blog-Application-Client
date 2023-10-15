@@ -14,7 +14,11 @@ const httpClient = async (url, userToken, options = {}) => {
     });
 
     if (!response.ok) {
-      throw new Error(`Not Authorized! Status: ${response.status}`);
+      const errorMessage = await response.json();
+      throw new Error(`Message: ${errorMessage.message}, Status: ${response.status}`);
+      // throw new Error(
+      //   `Not Authorized! Status: ${response.status}, Message: ${errorMessage.message}`
+      // );
     }
 
     //   return response.json();

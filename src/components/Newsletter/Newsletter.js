@@ -103,7 +103,7 @@ const Newsletter = ({ showPopup, handleClosePopup }) => {
         </section>
         <section className="bottom__input">
           <section className="bottom__input__content">
-            <label htmlFor="email">Email Address</label>
+            <label htmlFor="email">Email Address :</label>
             <input type="email" value={email} onChange={handleEmailChange} />
             {/* <button onClick={submitEmail} disabled={!isEmailValid}> */}
             <button onClick={submitEmail} disabled={email.length < 1}>

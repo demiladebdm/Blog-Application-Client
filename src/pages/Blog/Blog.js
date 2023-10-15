@@ -5,7 +5,7 @@ import { useLocation } from "react-router";
 // import BlogImg from "../../assets/test_image.jpeg";
 import "./Blog.css";
 import Loader from "../../components/Loader/Loader";
-import { useSelector } from "react-redux"; 
+import { useSelector } from "react-redux";
 import { authService } from "../../service/authService";
 import httpClient from "../../service/httpClient";
 
@@ -16,6 +16,7 @@ const Blog = () => {
 
   // Access the user's token from the Redux store
   const userToken = useSelector((state) => state.user.userInfo?.token);
+
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -63,11 +64,13 @@ const Blog = () => {
                   <div className="blog__details">
                     <h3 className="blog__title">{post.title}</h3>
                     <h4 className="blog__category">
-                      {/* {post.categories}{" "} */}
-                      {post.categories?.map((category) => category.name).join(", ")}{" "}
+                      {post.categories
+                        ?.map((category) => category.name)
+                        .join(", ")}{" "}
                       <span>{new Date(post.createdAt).toDateString()}</span>
                     </h4>
-                    <p className="blog__info">{post.desc}</p>
+                    {/* <p className="blog__info">{post.desc}</p> */}
+                    <p className="blog__info" dangerouslySetInnerHTML={{ __html: post.desc }} />
                     <button>Read more ...</button>
                   </div>
                 </Suspense>

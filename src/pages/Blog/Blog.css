@@ -143,3 +143,14 @@
   -webkit-line-clamp: 7;
   -webkit-box-orient: vertical;
 }
+
+.blog__info h1 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.blog__info p {
+  font-size: 1em;
+  font-weight: normal;
+  text-decoration: none;
+}
