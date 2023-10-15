@@ -1,12 +1,15 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import toast from "react-hot-toast";
+
+import { useDispatch, useSelector } from "react-redux";
 
 import "./Authentication.css";
 import Loader from "../../components/Loader/Loader";
 
 function Register() {
   const navigate = useNavigate();
-  // const baseUrl = "http://localhost:5000/api";
+  const userState = useSelector((state) => state.user);
   const baseUrl = process.env.REACT_APP_API_URL;
 
   const [username, setUsername] = useState("");
@@ -32,19 +35,21 @@ function Register() {
         const errorData = await response.json();
 
         // Check if the errorData has a 'message' property
-        const errorMessage = errorData.err || "An error occurred.";
-        console.log(errorMessage);
+        const errorMessage = errorData.message || "An error occurred.";
         throw new Error(errorMessage);
       }
 
       const responseData = await response.json();
       console.log("Registration Successful", responseData);
 
-      // Navigate to the login page
-      navigate("/login");
+      toast.success("Registration successful");
+      setTimeout(() => {
+        navigate("/login");
+      }, 1000);
     } catch (error) {
       console.error("Registration failed", error.message);
       setError(error.message);
+      toast.error(error.message);
     } finally {
       setLoading(false);
     }
@@ -62,6 +67,12 @@ function Register() {
       password: password,
     });
   };
+
+  useEffect(() => {
+    if (userState.userInfo) {
+      navigate("/");
+    }
+  }, [navigate, userState.userInfo]);
 
   return (
     <section className="login">

@@ -1,12 +1,18 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import toast from "react-hot-toast";
+
+import { useDispatch, useSelector } from "react-redux";
+import { userActions } from "../../store/reducers/userReducers";
+import { authService } from "../../service/authService";
 
 import "./Authentication.css";
 import Loader from "../../components/Loader/Loader";
 
 function Login() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const baseUrl = "http://localhost:5000/api";
+  const userState = useSelector(state => state.user)
   const baseUrl = process.env.REACT_APP_API_URL;
 
   const [email, setEmail] = useState("");
@@ -23,6 +29,7 @@ function Login() {
         headers: {
           "Content-Type": "application/json",
         },
+        // ...authService.setAuthHeader(token),
         body: JSON.stringify(userData),
       });
 
@@ -32,7 +39,7 @@ function Login() {
         const errorData = await response.json();
 
         // Check if the errorData has a 'message' property
-        const errorMessage = errorData || "An error occurred.";
+        const errorMessage = errorData.message || "An error occurred.";
         console.log(errorMessage);
         throw new Error(errorMessage);
       }
@@ -40,11 +47,26 @@ function Login() {
       const responseData = await response.json();
       console.log("Login Successful", responseData);
 
-      // Navigate to the home page
-      navigate("/");
+      // Extract the token from the response
+      const { token } = responseData;
+
+      // Dispatch action to update user information in Redux store
+      dispatch(userActions.setUserInfo(responseData));
+      localStorage.setItem("userData", JSON.stringify(responseData));
+
+      // Set the token in the Authorization header for future requests
+      const serve = authService.setAuthHeader(token);
+
+      console.log("serve", serve)
+
+      toast.success("User Logged In");
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
     } catch (error) {
       console.error("Login failed", error.message);
       setError(error.message);
+      toast.error(error.message);
     } finally {
       setLoading(false);
     }
@@ -61,6 +83,12 @@ function Login() {
       password: password,
     });
   };
+
+  useEffect(() => {
+    if (userState.userInfo) {
+      navigate("/");
+    }
+  }, [navigate, userState.userInfo]);
 
   return (
     <section className="login">
