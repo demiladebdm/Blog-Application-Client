@@ -91,6 +91,7 @@
   justify-content: center;
   text-align: center;
   gap: 1rem;
+  margin: 1.8rem 0;
 }
 
 .top__input__left {
@@ -151,14 +152,19 @@
 }
 
 .bottom__input__content {
-  height: 100%;
+  margin: 1.8rem 0;
+  
+}
+
+.bottom__middle__input__content {
+  /* height: 100%; */
   width: 100%;
-  margin-top: 1.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   gap: 1rem;
+  margin: 1rem 0;
 }
 
 .bottom__input__error {
@@ -168,15 +174,15 @@
   color: red;
 }
 
-.bottom__input__content input {
+.bottom__middle__input__content input {
   padding: 0.4rem 1.2rem;
   height: 25%;
-  width: 40%;
+  width: 15rem;
   border: none;
   border-radius: 1em;
 }
 
-.bottom__input__content input:focus {
+.bottom__middle__input__content input:focus {
   outline: none;
 }
 
@@ -184,8 +190,11 @@
   font-size: 1.2rem;
   text-decoration: none;
   color: var(--white);
+  background: var(--primary);
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.5rem;
   font-weight: 600;
-  background: none;
+  /* background: none; */
   border: none;
   cursor: pointer;
 }

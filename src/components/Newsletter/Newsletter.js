@@ -12,6 +12,7 @@ import httpClient from "../../service/httpClient";
 const Newsletter = ({ showPopup, handleClosePopup }) => {
   // const userState = useSelector((state) => state.user);
   //   const [showPopup, setShowPopup] = useState(false);
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -47,7 +48,7 @@ const Newsletter = ({ showPopup, handleClosePopup }) => {
         return;
       }
 
-      const formData = { email };
+      const formData = { name, email };
 
       const response = await httpClient("/emails", userToken, {
         method: "POST",
@@ -103,11 +104,14 @@ const Newsletter = ({ showPopup, handleClosePopup }) => {
         </section>
         <section className="bottom__input">
           <section className="bottom__input__content">
-            <label htmlFor="email">Email Address :</label>
-            <input type="email" value={email} onChange={handleEmailChange} />
+            <p>Enter your Details Below to Subscribe for free</p>
+            <section className="bottom__middle__input__content">
+              <input type="name" placeholder="Enter you name here..." value={name} onChange={(e) => {setName(e.target.value)}} />
+              <input type="email" placeholder="Enter your email here..." value={email} onChange={handleEmailChange} />
+            </section>
             {/* <button onClick={submitEmail} disabled={!isEmailValid}> */}
             <button onClick={submitEmail} disabled={email.length < 1}>
-              Submit
+              Submit & Sign Up
             </button>
           </section>
           <section className="bottom__input__error">

@@ -4,14 +4,15 @@
   justify-content: center;
   width: 100%;
   /* height: calc(100vh - 14vh); */
-  background: var(--theme);
-  color: var(--white);
+  background: var(--white);
+  color: var(--theme);
   padding-bottom: 4rem;
 }
 
 .write__form {
   width: 90%;
   height: 100%;
+  /* border: 2px solid red; */
 }
 
 .write__form__head {
@@ -35,6 +36,7 @@
 }
 
 .uploaded__image img {
+  background: var(--theme);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,11 +46,11 @@
 }
 
 .write__title__input {
-  width: 50%;
+  width: 80%;
   font-size: 2rem;
   padding: 0.5rem 1rem;
   border-radius: 0.4rem;
-  border: none;
+  border: 0.5px solid gray;
 }
 
 .write__icon {

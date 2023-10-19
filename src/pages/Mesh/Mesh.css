@@ -6,6 +6,6 @@
     justify-content: center;
     font-size: 6rem;
     font-weight: 900;
-    background: var(--theme);
-    color: var(--white)
+    background: var(--white);
+    color: var(--theme);
 }

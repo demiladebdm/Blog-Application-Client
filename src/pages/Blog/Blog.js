@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { useLocation } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 // import HeaderImg from "../../assets/test_header.jpeg";
 // import BlogImg from "../../assets/test_image.jpeg";
@@ -10,13 +11,13 @@ import { authService } from "../../service/authService";
 import httpClient from "../../service/httpClient";
 
 const Blog = () => {
+  const navigate = useNavigate();
   const url = process.env.REACT_APP_API_URL;
   const [posts, setPosts] = useState([]);
   const { search } = useLocation();
 
   // Access the user's token from the Redux store
   const userToken = useSelector((state) => state.user.userInfo?.token);
-
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -37,6 +38,10 @@ const Blog = () => {
     fetchPosts();
   }, [search, userToken]);
 
+  const handleReadMore = (postId) => {
+    navigate(`/blog/${postId}`);
+  };
+
   return (
     <section className="blogs">
       <Suspense fallback={<Loader />}>
@@ -44,11 +49,11 @@ const Blog = () => {
           {/* <div>
             <img src={HeaderImg} alt="Header" />
           </div> */}
-          <div className="blog__container__background"></div>
-          <div>
+          <section className="blog__container__background"></section>
+          <section>
             <h2 className="blogs__title">Blogs</h2>
             <h4 className="blogs__subtitle">Latest Articles & News</h4>
-          </div>
+          </section>
         </section>
 
         <section className="blog__container">
@@ -58,10 +63,10 @@ const Blog = () => {
             posts.map((post) => (
               <article key={post._id} className="blog">
                 <Suspense fallback={<Loader />}>
-                  <div className="blog__img">
+                  <section className="blog__img">
                     <img src={post.photo} alt="Blog" />
-                  </div>
-                  <div className="blog__details">
+                  </section>
+                  <section className="blog__details">
                     <h3 className="blog__title">{post.title}</h3>
                     <h4 className="blog__category">
                       {post.categories
@@ -70,9 +75,14 @@ const Blog = () => {
                       <span>{new Date(post.createdAt).toDateString()}</span>
                     </h4>
                     {/* <p className="blog__info">{post.desc}</p> */}
-                    <p className="blog__info" dangerouslySetInnerHTML={{ __html: post.desc }} />
-                    <button>Read more ...</button>
-                  </div>
+                    <p
+                      className="blog__info"
+                      dangerouslySetInnerHTML={{ __html: post.desc }}
+                    />
+                    <button onClick={() => handleReadMore(post._id)}>
+                      Read more ...
+                    </button>
+                  </section>
                 </Suspense>
               </article>
             ))

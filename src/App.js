@@ -6,11 +6,12 @@ import { Toaster } from "react-hot-toast";
 import Navbar from "./components/Navbar/Navbar";
 import Chat from "./components/Chat/Chat";
 import Loader from "./components/Loader/Loader";
+import Footer from "./components/Footer/Footer";
 
 // Use lazy to import components dynamically
 const Home = lazy(() => import("./pages/Home/Home"));
 const Blog = lazy(() => import("./pages/Blog/Blog"));
-const BlogDetail = lazy(() => import("./pages/Blog/BlogDetail"));
+const BlogDetail = lazy(() => import("./pages/BlogDetails/BlogDetail"));
 const Contact = lazy(() => import("./pages/Contact/Contact"));
 const Brokers = lazy(() => import("./pages/Brokers/Brokers"));
 const Mesh = lazy(() => import("./pages/Mesh/Mesh"));
@@ -40,6 +41,7 @@ function App() {
           <Chat />
         </Suspense>
         <Toaster />
+        <Footer />
       </Router>
     </section>
   );

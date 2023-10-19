@@ -157,7 +157,7 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <li className="navbar__center__link">
+              {/* <li className="navbar__center__link">
                 <Link className="navLinks" to="/login">
                   Login
                 </Link>
@@ -166,7 +166,7 @@ const Navbar = () => {
                 <Link className="navLinks" to="/register">
                   Register
                 </Link>
-              </li>
+              </li> */}
             </>
           )}
         </ul>
