@@ -2,6 +2,7 @@
   position: relative;
   /* border: 2px solid red; */
   cursor: pointer;
+  z-index: 100;
 }
 
 .chat__image img {
