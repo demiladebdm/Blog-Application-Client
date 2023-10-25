@@ -69,11 +69,8 @@ const Navbar = () => {
   }, [userToken]);
 
   return (
-    // <nav className={`navbar ${showNavbar ? "show" : ""}`}>
-    <nav className={showNavbar ? "hambugger" : "navbar"}>
-      <div className="hamburger" onClick={toggleNavbar}>
-        {showNavbar ? <FaTimes /> : <FaBars />}
-      </div>
+    <nav className="navbar">
+       
       <section className="navbar__left">
         <Link to="/">
           <img src={Logo} alt="Blog Logo" />
@@ -81,11 +78,6 @@ const Navbar = () => {
       </section>
 
       <section className="navbar__center">
-        <section className="navbar__left__mobile">
-          <Link to="/">
-            <img src={Logo} alt="Blog Logo" />
-          </Link>
-        </section>
         <ul
           className="navbar__center__links"
           onClick={() => setShowNavbar(false)}
@@ -172,7 +164,105 @@ const Navbar = () => {
         </ul>
       </section>
 
-      <section className="navbar__right"></section>
+      <section className="navbar2__center" style={showNavbar ? {background: 'green'} : {background: 'transparent'}}>
+      <div className="hamburger" style={showNavbar ? {right: '1rem'} : {left: '1rem'}} onClick={toggleNavbar}>
+        {showNavbar ? <FaTimes /> : <FaBars />}
+      </div>
+        {showNavbar && <ul
+          className="navbar2__center__links"
+        >
+          <li className="navbar2__center__link" onClick={() => setShowNavbar(false)}>
+            <Link className="navLinks" to="/">
+              Home
+            </Link>
+          </li>
+          <li
+            className="navbar2__center__link"
+            
+            // onMouseLeave={toggleDropdown}
+          >
+            <span className="navLinks blog__dropdown" onClick={toggleDropdown}>
+              Blog <FaAngleDown />
+            </span>
+          </li>
+          {showDropdown &&
+          // categoryOptions.map((category) => (
+            <li
+              // key={category._id}
+              className="navbar2__center__link dropdown__list"
+              onClick={closeDropdown}
+            >
+              <Link
+                // to={`/blog?cat=${category.name}`}
+                to='/'
+                className="dropdown__list__link"
+              >
+                {/* {category.name} */} Perfect
+              </Link>
+              <Link
+                // to={`/blog?cat=${category.name}`}
+                to='/'
+                className="dropdown__list__link"
+              >
+                {/* {category.name} */} Perfect
+              </Link>
+              <Link
+                // to={`/blog?cat=${category.name}`}
+                to='/'
+                className="dropdown__list__link"
+              >
+                {/* {category.name} */} Perfect
+              </Link>
+            </li>
+          // ))
+          }
+          <li className="navbar2__center__link" onClick={() => setShowNavbar(false)}>
+            <Link className="navLinks" to="/contact">
+              Contact Us
+            </Link>
+          </li>
+          <li className="navbar2__center__link" onClick={() => setShowNavbar(false)}>
+            <Link className="navLinks" to="/brokers">
+              Brokers
+            </Link>
+          </li>
+          <li className="navbar2__center__link" onClick={() => setShowNavbar(false)}>
+            <Link className="navLinks" to="/mesh">
+              Mesh
+            </Link>
+          </li>
+          {userState.userInfo ? (
+            <>
+              <li className="navbar2__center__link">
+                <Link className="navLinks" to="/write">
+                  Write
+                </Link>
+              </li>
+              <button
+                type="button"
+                disabled={loading}
+                className="logout__button"
+                onClick={logoutHandler}
+              >
+                {loading ? "Logging out..." : "Logout"}
+              </button>
+            </>
+          ) : (
+            <>
+              {/* <li className="navbar__center__link">
+                <Link className="navLinks" to="/login">
+                  Login
+                </Link>
+              </li>
+              <li className="navbar__center__link">
+                <Link className="navLinks" to="/register">
+                  Register
+                </Link>
+              </li> */}
+            </>
+          )}
+        </ul>}
+      </section>
     </nav>
   );
 };
