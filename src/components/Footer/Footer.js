@@ -1,6 +1,7 @@
 import React from "react";
 
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const Logo =
@@ -16,12 +17,18 @@ const Footer = () => {
           <section className="footer__section__link__container">
             <section className="footer__section__link">
               <h4>Blog</h4>
-              <a href="/employers">
-                <p>Academy</p>
+              {/* <a href="/employers">
+                <p>Forex</p>
+              </a> */}
+              <Link to={`/blog?cat=forex`}>Forex</Link>
+              <Link to={`/blog?cat=binary-options`}>Binary Options</Link>
+              <Link to={`/blog?cat=economics`}>Economics</Link>
+              {/* <a href="/employers">
+                <p>Binary Options</p>
               </a>
               <a href="/employers">
-                <p>Podcast</p>
-              </a>
+                <p>Economics</p>
+              </a> */}
             </section>
             <section className="footer__section__link">
               <h4>About</h4>

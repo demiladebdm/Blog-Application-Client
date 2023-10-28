@@ -1,13 +1,16 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
 
 // import bgImg from "../../assets/blog.png";
+import bgImg from "../../assets/hero.png";
 import "./Home.css";
 import Loader from "../../components/Loader/Loader";
+import Blog from "../Blog/Blog"
+import { Link } from "react-router-dom";
 
 const Newsletter = lazy(() => import("../../components/Newsletter/Newsletter"));
 
 const Home = () => {
-  const bgImg = "https://res.cloudinary.com/dlmd26faz/image/upload/v1697238685/Blog/Static/blog_lihsdd.png";
+  // const bgImg = "https://res.cloudinary.com/dlmd26faz/image/upload/v1697238685/Blog/Static/blog_lihsdd.png";
   const [showPopup, setShowPopup] = useState(false);
 
   // const url = "http://localhost:5000/api";
@@ -28,11 +31,14 @@ const Home = () => {
   return (
     <section className={`home ${showPopup ? "popup-visible" : ""}`}>
       <Suspense fallback={<Loader />}>
-        {showPopup && (
+        {/* {showPopup && (
           <Suspense fallback={<Loader />}>
-            <Newsletter showPopup={showPopup} handleClosePopup={handleClosePopup} />
+            <Newsletter
+              showPopup={showPopup}
+              handleClosePopup={handleClosePopup}
+            />
           </Suspense>
-        )}
+        )} */}
 
         <section className="home__left">
           <span className="hello">Hello,</span>
@@ -43,19 +49,30 @@ const Home = () => {
           </span>
 
           <p className="intro__paragraph">
-            I am the founder of Wolstreet Finance. I specialize in studying great
+            {/* I am the founder of Wolstreet Finance. I specialize in studying great
             research from people much more qualified than me. <br /> Then, I apply
             it to the real-world of trading to find out what works and what
             doesn’t.
             <br />
             And finally, share them with people like you, so you can become a
-            consistently profitable trader.
+            consistently profitable trader. */}
+            Here’s the deal… I'll be sending you easy to understand trading tips
+            and feed you with happenings in the financial market every week
+            without miss. You’ll also get my FREE trading e-book which will
+            permanently change your approach to trading. So, click below to gain
+            full access…
           </p>
+
+          <section className="read__more">
+            <Link className="read__more__button" to="/about">Read More ...</Link>
+          </section>
         </section>
 
         <section className="home__right">
           <img src={bgImg} alt="Profile" />
         </section>
+
+        {/* <Blog /> */}
       </Suspense>
     </section>
   );

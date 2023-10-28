@@ -25,8 +25,8 @@ const Write = () => {
   const userToken = useSelector((state) => state.user.userInfo?.token);
 
   // const url = "http://localhost:5000/api";
-  const url = process.env.REACT_APP_API_URL;
-  const cloudinaryName = process.env.REACT_APP_CLOUDINARY_NAME;
+  // const url = process.env.REACT_APP_API_URL;
+  // const cloudinaryName = process.env.REACT_APP_CLOUDINARY_NAME;
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -43,7 +43,7 @@ const Write = () => {
     };
 
     fetchCategories();
-  }, []);
+  }, [userToken]);
 
   const handleFileChange = async (e) => {
     e.preventDefault();
@@ -85,7 +85,6 @@ const Write = () => {
       toast.error(error.message);
     }
   };
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -157,7 +156,7 @@ const Write = () => {
         <form className="write__form" onSubmit={handleSubmit}>
           {cloudinaryUrl && (
             <section className="uploaded__image">
-              <img src={cloudinaryUrl} alt="Title Image" />
+              <img src={cloudinaryUrl} alt="Title" />
             </section>
           )}
           <section className="write__form__head">
@@ -191,13 +190,13 @@ const Write = () => {
               name="categories"
               id="categories"
               onChange={(e) => setCategories([e.target.value])}
-              // value={categories}
               value={categories.length > 0 ? categories[0] : ""}
               required
             >
               <option value="" disabled style={{ color: "red" }}>
                 Select a category
               </option>
+              {/* <option value="brokers">Brokers</option> */}
               {categoryOptions.map((category) => (
                 <option
                   key={category._id}

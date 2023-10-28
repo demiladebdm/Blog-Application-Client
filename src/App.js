@@ -9,7 +9,9 @@ import Loader from "./components/Loader/Loader";
 import Footer from "./components/Footer/Footer";
 
 // Use lazy to import components dynamically
+const HomePage = lazy(()=> import("./pages/HomePage/HomePage"));
 const Home = lazy(() => import("./pages/Home/Home"));
+const About = lazy(() => import("./pages/About/About"));
 const Blog = lazy(() => import("./pages/Blog/Blog"));
 const BlogDetail = lazy(() => import("./pages/BlogDetails/BlogDetail"));
 const Contact = lazy(() => import("./pages/Contact/Contact"));
@@ -26,7 +28,9 @@ function App() {
         <Navbar />
         <Suspense fallback={<Loader />}>
           <Routes>
-            <Route path="/" element={<Home />}></Route>
+            <Route path="/" element={<HomePage />}></Route>
+            <Route path="/home" element={<Home />}></Route>
+            <Route path="/about" element={<About />}></Route>
             <Route path="/blog" element={<Blog />}></Route>
             <Route path="/blog/:id" element={<BlogDetail />}></Route>
             <Route path="/contact" element={<Contact />}></Route>
@@ -39,9 +43,9 @@ function App() {
           </Routes>
 
           <Chat />
+          <Footer />
         </Suspense>
         <Toaster />
-        <Footer />
       </Router>
     </section>
   );

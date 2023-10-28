@@ -14,7 +14,7 @@ const Chat = () => {
 
   return (
     <section className="chat__image" onClick={handleChat}>
-      <img src={chatImg} />
+      <img src={chatImg} alt="Chat" />
     </section>
   );
 };

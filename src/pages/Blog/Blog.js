@@ -7,12 +7,13 @@ import { useNavigate } from "react-router-dom";
 import "./Blog.css";
 import Loader from "../../components/Loader/Loader";
 import { useSelector } from "react-redux";
-import { authService } from "../../service/authService";
+// import { authService } from "../../service/authService";
 import httpClient from "../../service/httpClient";
+// import parseJsonToHtml from "../../utils/parseJsonToHtml";
 
 const Blog = () => {
   const navigate = useNavigate();
-  const url = process.env.REACT_APP_API_URL;
+  // const url = process.env.REACT_APP_API_URL;
   const [posts, setPosts] = useState([]);
   const { search } = useLocation();
 
@@ -74,11 +75,13 @@ const Blog = () => {
                         .join(", ")}{" "}
                       <span>{new Date(post.createdAt).toDateString()}</span>
                     </h4>
+                    {/* {console.log("JSON Content:", post.desc)} */}
                     {/* <p className="blog__info">{post.desc}</p> */}
                     <p
                       className="blog__info"
                       dangerouslySetInnerHTML={{ __html: post.desc }}
                     />
+                    {/* <p className="blog__info">{parseJsonToHtml(post.desc)}</p> */}
                     <button onClick={() => handleReadMore(post._id)}>
                       Read more ...
                     </button>

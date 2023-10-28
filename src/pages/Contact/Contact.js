@@ -3,18 +3,20 @@ import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import httpClient from "../../service/httpClient";
 
+import bgImg from "../../assets/hero.png";
+
 import "./Contact.css";
-import Email from "../../assets/email.png"
-import Location from "../../assets/location.png"
-import Phone from "../../assets/phone.png"
+import Email from "../../assets/email.png";
+import Location from "../../assets/location.png";
+import Phone from "../../assets/phone.png";
 import Shape from "../../assets/shape.png";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    fullName: "",
+    // lastName: "",
     email: "",
-    phoneNumber: "",
+    // phoneNumber: "",
     message: "",
   });
 
@@ -22,20 +24,18 @@ const Contact = () => {
   const userToken = useSelector((state) => state.user.userInfo?.token);
 
   const contactInfoData = [
-    { icon: Location, text: "92 Cherry Drive Uniondale, NY 11553" },
-    { icon: Email, text: "lorem@ipsum.com" },
-    { icon: Phone, text: "123-456-789" },
+    // { icon: Location, text: "92 Cherry Drive Uniondale, NY 11553" },
+    { icon: Email, text: "wolstreetfinance@gmail.com" },
+    { icon: Phone, text: "+234 810 159 1413" },
   ];
 
   const socialMediaLinks = [
     { icon: "fab fa-facebook-f", link: "#" },
-    { icon: "fab fa-twitter", link: "#" },
-    { icon: "fab fa-instagram", link: "#" },
+    { icon: "fab fa-twitter", link: "https://x.com/BoyHedger?t=3SC9pKJiu-28TNlOmoVD1Q&s=09" },
+    { icon: "fab fa-instagram", link: "https://instagram.com/wolstreetfinance?utm_source=qr&igshid=MzNlNGNkZWQ4Mg==" },
     { icon: "fab fa-linkedin-in", link: "#" },
-    {
-      icon: "fab fa-youtube",
-      link: "https://www.youtube.com/@WolstreetFinance",
-    },
+    { icon: "fab fa-telegram", link: "https://t.me/wolstreetfinance" },
+    { icon: "fab fa-youtube", link: "https://www.youtube.com/@WolstreetFinance" },
   ];
 
   const handleInputChange = (e) => {
@@ -58,6 +58,24 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Validate the form fields
+    const requiredFields = [
+      "fullName",
+      // "lastName",
+      "email",
+      // "phoneNumber",
+      "message",
+    ];
+    const isFormValid = requiredFields.every(
+      (field) => formData[field].trim() !== ""
+    );
+
+    if (!isFormValid) {
+      toast.error("Please fill in all the required fields");
+      return;
+    }
+
     // Add your form submission logic here
     console.log("Form submitted:", formData);
 
@@ -94,7 +112,10 @@ const Contact = () => {
       <img src={Shape} className="square" alt="" />
       <section className="form">
         <section className="contact-info">
-          <h3 className="title">Let's get in touch</h3>
+          <section className="background">
+            <img src={bgImg} alt="Background" />
+          </section>
+          {/* <h3 className="title">Let's get in touch</h3>
           <p className="text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
             dolorum adipisci recusandae praesentium dicta!
@@ -122,7 +143,7 @@ const Contact = () => {
                 </a>
               ))}
             </section>
-          </section>
+          </section> */}
         </section>
 
         <section className="contact-form">
@@ -133,20 +154,21 @@ const Contact = () => {
             <h3 className="title">Contact us</h3>
 
             <section className="input-container">
+              <label htmlFor="fullName">Full Name</label>
               <input
                 type="text"
-                name="firstName"
+                name="fullName"
                 className="input"
-                value={formData.firstName}
+                placeholder="John Doe"
+                value={formData.fullName}
                 onChange={handleInputChange}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
               />
-              <label htmlFor="firstName">First Name</label>
-              <span>First Name</span>
+              {/* <span>full Name</span> */}
             </section>
 
-            <section className="input-container">
+            {/* <section className="input-container">
               <input
                 type="text"
                 name="lastName"
@@ -158,22 +180,23 @@ const Contact = () => {
               />
               <label htmlFor="lastName">Last Name</label>
               <span>Last Name</span>
-            </section>
+            </section> */}
 
             <section className="input-container">
+              <label htmlFor="email">Email</label>
               <input
                 type="email"
                 name="email"
                 className="input"
+                placeholder="j.doe@gmail.com"
                 value={formData.email}
                 onChange={handleInputChange}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
               />
-              <label htmlFor="email">Email</label>
-              <span>Email</span>
+              {/* <span>Email</span> */}
             </section>
-
+            {/* 
             <section className="input-container">
               <input
                 type="tel"
@@ -186,22 +209,23 @@ const Contact = () => {
               />
               <label htmlFor="phoneNumber">Phone</label>
               <span>Phone</span>
-            </section>
+            </section> */}
 
             <section className="input-container textarea">
+              <label htmlFor="message">Message</label>
               <textarea
                 name="message"
                 className="input"
+                placeholder="Type your message here"
                 value={formData.message}
                 onChange={handleInputChange}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
               ></textarea>
-              <label htmlFor="message">Message</label>
-              <span>Message</span>
+              {/* <span>Message</span> */}
             </section>
 
-            <input type="submit" value="Send" className="btn" />
+            <input type="submit" value="Send your message" className="btn" />
           </form>
         </section>
       </section>

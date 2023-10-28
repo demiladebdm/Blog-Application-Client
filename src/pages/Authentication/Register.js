@@ -2,7 +2,8 @@ import React, { Suspense, useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 
 import "./Authentication.css";
 import Loader from "../../components/Loader/Loader";

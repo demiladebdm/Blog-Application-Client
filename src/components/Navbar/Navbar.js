@@ -9,6 +9,7 @@ import { FaAngleDown, FaBars, FaTimes } from "react-icons/fa";
 import "./Navbar.css";
 import { logout } from "../../store/actions/user";
 import httpClient from "../../service/httpClient";
+// import Loader from "../Loader/Loader";
 
 const Navbar = () => {
   const userState = useSelector((state) => state.user);
@@ -24,7 +25,7 @@ const Navbar = () => {
   const userToken = useSelector((state) => state.user.userInfo?.token);
 
   // const url = "http://localhost:5000/api";
-  const url = process.env.REACT_APP_API_URL;
+  // const url = process.env.REACT_APP_API_URL;
   const Logo =
     "https://res.cloudinary.com/dlmd26faz/image/upload/v1697239340/Blog/Static/logo_afxtss.png";
 
@@ -41,12 +42,20 @@ const Navbar = () => {
   };
 
   const logoutHandler = () => {
-    dispatch(logout());
+    try {
+      setLoading(true);
 
-    toast.success("User Logging Out");
-    setTimeout(() => {
+      dispatch(logout());
+
+      toast.success("User Logging Out");
       navigate("/login");
-    }, 1000);
+      // setTimeout(() => {
+      // }, 1000);
+    } catch (error) {
+      console.error("Error logging out:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -59,7 +68,11 @@ const Navbar = () => {
         }
 
         const data = await response;
-        setCategoryOptions(data);
+
+        // Exclude the category named "Brokers"
+        const filteredCategories = data.filter(category => category.name !== "brokers");
+
+        setCategoryOptions(filteredCategories);
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
@@ -70,10 +83,13 @@ const Navbar = () => {
 
   return (
     // <nav className={`navbar ${showNavbar ? "show" : ""}`}>
-    <nav className={showNavbar ? "hambugger" : "navbar"}>
-      <div className="hamburger" onClick={toggleNavbar}>
+    // <nav className={showNavbar ? "hambugger" : "navbar"}>
+    <nav className="navbar">
+      <section className="nav__height"></section>
+      {/* <div className="hamburger" onClick={toggleNavbar}>
         {showNavbar ? <FaTimes /> : <FaBars />}
-      </div>
+      </div> */}
+
       <section className="navbar__left">
         <Link to="/">
           <img src={Logo} alt="Blog Logo" />
@@ -81,11 +97,11 @@ const Navbar = () => {
       </section>
 
       <section className="navbar__center">
-        <section className="navbar__left__mobile">
+        {/* <section className="navbar__left__mobile">
           <Link to="/">
             <img src={Logo} alt="Blog Logo" />
           </Link>
-        </section>
+        </section> */}
         <ul
           className="navbar__center__links"
           onClick={() => setShowNavbar(false)}
@@ -130,7 +146,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="navbar__center__link">
-            <Link className="navLinks" to="/brokers">
+            <Link className="navLinks" to="/brokers?cat=brokers">
               Brokers
             </Link>
           </li>
@@ -170,9 +186,118 @@ const Navbar = () => {
             </>
           )}
         </ul>
+        {/* {loading && <Loader />} */}
       </section>
 
-      <section className="navbar__right"></section>
+      {/* <section className="navbar__right"></section> */}
+      <section
+        className="navbar2__center"
+        style={
+          showNavbar ? { background: "#1a1a1a" } : { background: "transparent" }
+        }
+      >
+        <div
+          className="hamburger"
+          style={showNavbar ? { right: "1rem" } : { left: "1rem" }}
+          onClick={toggleNavbar}
+        >
+          {showNavbar ? <FaTimes /> : <FaBars />}
+        </div>
+        {showNavbar && (
+          <ul className="navbar2__center__links">
+            <li
+              className="navbar2__center__link"
+              onClick={() => setShowNavbar(false)}
+            >
+              <Link className="navLinks" to="/">
+                Home
+              </Link>
+            </li>
+
+            <li
+              className="navbar2__center__link"
+
+              // onMouseLeave={toggleDropdown}
+            >
+              <span
+                className="navLinks blog__dropdown"
+                onClick={toggleDropdown}
+              >
+                Blog <FaAngleDown />
+              </span>
+            </li>
+            {showDropdown &&
+              categoryOptions.map((category) => (
+                <li
+                  key={category._id}
+                  className="navbar2__center__link dropdown__list"
+                  onClick={closeDropdown}
+                >
+                  <Link
+                    to={`/blog?cat=${category.name}`}
+                    className="dropdown__list__link"
+                  >
+                    {category.name}
+                  </Link>
+                </li>
+              ))}
+            <li
+              className="navbar2__center__link"
+              onClick={() => setShowNavbar(false)}
+            >
+              <Link className="navLinks" to="/contact">
+                Contact Us
+              </Link>
+            </li>
+            <li
+              className="navbar2__center__link"
+              onClick={() => setShowNavbar(false)}
+            >
+              <Link className="navLinks" to="/brokers">
+                Brokers
+              </Link>
+            </li>
+            <li
+              className="navbar2__center__link"
+              onClick={() => setShowNavbar(false)}
+            >
+              <Link className="navLinks" to="/mesh">
+                Mesh
+              </Link>
+            </li>
+            {userState.userInfo ? (
+              <>
+                <li className="navbar2__center__link">
+                  <Link className="navLinks" to="/write">
+                    Write
+                  </Link>
+                </li>
+                <button
+                  type="button"
+                  disabled={loading}
+                  className="logout__button"
+                  onClick={logoutHandler}
+                >
+                  {loading ? "Logging out..." : "Logout"}
+                </button>
+              </>
+            ) : (
+              <>
+                {/* <li className="navbar__center__link">
+                <Link className="navLinks" to="/login">
+                  Login
+                </Link>
+              </li>
+              <li className="navbar__center__link">
+                <Link className="navLinks" to="/register">
+                  Register
+                </Link>
+              </li> */}
+              </>
+            )}
+          </ul>
+        )}
+      </section>
     </nav>
   );
 };

@@ -128,17 +128,24 @@
 .hello {
   font-size: 1.75rem;
   font-weight: 300;
+  margin-bottom: 1.5rem;
 }
 
 .intro__name__span {
   color: var(--primary);
+  margin-bottom: 1.5rem;
+}
+
+.intro__text {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
 }
 
 .intro__paragraph {
   font-size: medium;
   font-weight: 300;
   letter-spacing: 1px;
-  line-height: 1.2;
+  line-height: 2;
 }
 
 .home__right {
@@ -148,4 +155,17 @@
 
 .home__right img {
   height: 100vh;
+}
+
+.read__more {
+  margin: 2rem 0;
+}
+
+.read__more__button {
+  text-align: center;
+  padding: 0.5rem 1.5rem;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 1.5rem;
+  border-radius: 20px;
 }
