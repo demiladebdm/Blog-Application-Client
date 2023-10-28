@@ -31,7 +31,7 @@ const HomeBlog = () => {
 
         const data = await response;
 
-        // Extract the first 5 posts
+        // Extract the first few posts
         const firstFewPosts = data.slice(0, 4);
 
         setPosts(firstFewPosts);
