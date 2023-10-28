@@ -43,8 +43,8 @@ const HomeBlog = () => {
     fetchPosts();
   }, [search, userToken]);
 
-  const handleReadMore = (postId) => {
-    navigate(`/blog/${postId}`);
+  const handleReadMore = (firstFewPosts) => {
+    navigate(`/blog/${firstFewPosts}`);
   };
 
   return (
