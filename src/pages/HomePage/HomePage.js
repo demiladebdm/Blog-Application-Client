@@ -6,15 +6,17 @@ import "./HomePage.css";
 import Loader from "../../components/Loader/Loader";
 // import Blog from "../Blog/Blog"
 
-import Home from "../Home/Home"
+import Home from "../Home/Home";
 import HomeBlog from "../HomeBlog/HomeBlog";
 import Card from "../../components/Card/Card";
+import ECard from "../../components/ECard/ECard";
 
 const Newsletter = lazy(() => import("../../components/Newsletter/Newsletter"));
 
 const HomePage = () => {
   // const bgImg = "https://res.cloudinary.com/dlmd26faz/image/upload/v1697238685/Blog/Static/blog_lihsdd.png";
   const [showPopup, setShowPopup] = useState(false);
+  const [showPopupPage, setShowPopupPage] = useState(false);
 
   // const url = "http://localhost:5000/api";
   // const url = process.env.REACT_APP_API_URL;
@@ -27,9 +29,18 @@ const HomePage = () => {
     return () => clearTimeout(popupTimer);
   }, []);
 
+  const handleShowPopupPage = () => {
+    setShowPopupPage(true);
+  };
+
   const handleClosePopup = () => {
     setShowPopup(false);
   };
+
+   const handleClosePopupPage = () => {
+     setShowPopupPage(false);
+   };
+
 
   return (
     <section className="homepage">
@@ -43,9 +54,17 @@ const HomePage = () => {
           </Suspense>
         )}
         <Home />
-        <Card />
+        <Card showPopupPage={handleShowPopupPage} />
         <HomeBlog />
       </Suspense>
+      {showPopupPage && (
+        <Suspense fallback={<Loader />}>
+          <ECard
+            showPopup={showPopupPage}
+            handleClosePopup={handleClosePopupPage}
+          />
+        </Suspense>
+      )}
     </section>
   );
 };

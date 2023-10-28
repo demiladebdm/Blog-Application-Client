@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./Card.css";
 import CardImage from "../../assets/newsletter-ebook.png";
 
-const Card = () => {
+const Card = ({ showPopupPage }) => {
   const cardData = [
     {
       title: "NOT THE HOLY GRAIL",
@@ -24,6 +24,10 @@ const Card = () => {
     },
   ];
 
+  const handleButtonClick = () => {
+    showPopupPage();
+  };
+
   return (
     <section className="card">
       <section className="card__title">
@@ -40,7 +44,11 @@ const Card = () => {
               {card.description}
             </section>
             <section className="card__container__button">
-              <Link to={card.link} className="card__container__button__link">
+              <Link
+                // to={card.link}
+                className="card__container__button__link"
+                onClick={handleButtonClick}
+              >
                 {card.buttonText} <span>{card.buttonSpan}</span>
               </Link>
             </section>
