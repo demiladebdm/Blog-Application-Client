@@ -3,11 +3,6 @@ import React from "react";
 // import toast from "react-hot-toast";
 
 import "./Newsletter.css";
-// import httpClient from "../../service/httpClient";
-// import newsImg from "../../assets/newsletter.jpg";
-// import newsImg2 from "../../assets/newsletter2.jpg";
-// import newsImg3 from "../../assets/newsletter3.jpg";
-// import newsImg4 from "../../assets/newsletter4.jpg";
 import newsImg from "../../assets/newsletter-ebook.png";
 
 const Newsletter = ({ showPopup, handleClosePopup }) => {
@@ -144,7 +139,7 @@ const Newsletter = ({ showPopup, handleClosePopup }) => {
               >
                 <section className="formkit-field">
                   <input
-                    className="formkit-input"
+                    className="formkit-input newsletter__input"
                     name="email_address"
                     aria-label="Email Address"
                     placeholder="Email Address"

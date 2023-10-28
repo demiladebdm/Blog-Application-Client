@@ -50,7 +50,7 @@ const ECard = ({ showPopup, handleClosePopup }) => {
               >
                 <section className="formkit-field">
                   <input
-                    className="formkit-input"
+                    className="formkit-input ecard__form"
                     name="email_address"
                     aria-label="Email Address"
                     placeholder="Enter your Email Address"

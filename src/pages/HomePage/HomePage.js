@@ -45,14 +45,14 @@ const HomePage = () => {
   return (
     <section className="homepage">
       <Suspense fallback={<Loader />}>
-        {showPopup && (
+        {/* {showPopup && (
           <Suspense fallback={<Loader />}>
             <Newsletter
               showPopup={showPopup}
               handleClosePopup={handleClosePopup}
             />
           </Suspense>
-        )}
+        )} */}
         <Home />
         <Card showPopupPage={handleShowPopupPage} />
         <HomeBlog />
