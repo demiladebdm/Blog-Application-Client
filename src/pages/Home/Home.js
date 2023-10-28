@@ -72,7 +72,6 @@ const Home = () => {
           <img src={bgImg} alt="Profile" />
         </section>
 
-        {/* <Blog /> */}
       </Suspense>
     </section>
   );
