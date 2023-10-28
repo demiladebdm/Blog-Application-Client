@@ -149,3 +149,26 @@
 .home__right img {
   height: 100vh;
 }
+
+
+@media (max-width: 768px) {
+  .home {
+    flex-direction: column;
+    height: auto; /* Remove fixed height on small screens */
+  }
+
+  .home__left,
+  .home__right {
+    width: 100%;
+    margin: 0;
+  }
+
+  .home__left {
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
+  }
+
+  .home__right img {
+    height: auto;
+    max-width: 100%; /* Ensure the image does not overflow its container */
+  }
+}

@@ -1,8 +1,7 @@
 import React from "react";
 
 import "./ECard.css";
-import { FiCheck } from "react-icons/fi";
-import EBookImg from "../../assets/newsletter-ebook.jpg";
+import EBookImg from "../../assets/newsletter-ebook.png";
 
 const ECard = ({ showPopup, handleClosePopup }) => {
   const bookItems = [

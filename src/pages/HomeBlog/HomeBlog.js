@@ -51,35 +51,31 @@ const HomeBlog = () => {
     <section className="blogs">
       <Suspense fallback={<Loader />}>
         <section className="blog__container">
-          {posts.length === 0 ? (
-            <p>Sorry, there is no stories yet for this category</p>
-          ) : (
-            posts.map((post) => (
-              <article key={post._id} className="blog__home">
-                <Suspense fallback={<Loader />}>
-                  <section className="blog__img">
-                    <img src={post.photo} alt="Blog" />
-                  </section>
-                  <section className="blog__details">
-                    <h3 className="blog__title">{post.title}</h3>
-                    <h4 className="blog__category">
-                      {post.categories
-                        ?.map((category) => category.name)
-                        .join(", ")}{" "}
-                      <span>{new Date(post.createdAt).toDateString()}</span>
-                    </h4>
-                    <p
-                      className="blog__info"
-                      dangerouslySetInnerHTML={{ __html: post.desc }}
-                    />
-                    <button onClick={() => handleReadMore(post._id)}>
-                      Read more ...
-                    </button>
-                  </section>
-                </Suspense>
-              </article>
-            ))
-          )}
+          {posts.map((post) => (
+            <article key={post._id} className="blog__home">
+              <Suspense fallback={<Loader />}>
+                <section className="blog__img">
+                  <img src={post.photo} alt="Blog" />
+                </section>
+                <section className="blog__details">
+                  <h3 className="blog__title">{post.title}</h3>
+                  <h4 className="blog__category">
+                    {post.categories
+                      ?.map((category) => category.name)
+                      .join(", ")}{" "}
+                    <span>{new Date(post.createdAt).toDateString()}</span>
+                  </h4>
+                  <p
+                    className="blog__info"
+                    dangerouslySetInnerHTML={{ __html: post.desc }}
+                  />
+                  <button onClick={() => handleReadMore(post._id)}>
+                    Read more ...
+                  </button>
+                </section>
+              </Suspense>
+            </article>
+          ))}
         </section>
       </Suspense>
     </section>

@@ -8,6 +8,7 @@ import Loader from "../../components/Loader/Loader";
 
 import Home from "../Home/Home"
 import HomeBlog from "../HomeBlog/HomeBlog";
+import Card from "../../components/Card/Card";
 
 const Newsletter = lazy(() => import("../../components/Newsletter/Newsletter"));
 
@@ -42,6 +43,7 @@ const HomePage = () => {
           </Suspense>
         )}
         <Home />
+        <Card />
         <HomeBlog />
       </Suspense>
     </section>

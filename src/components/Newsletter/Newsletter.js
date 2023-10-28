@@ -8,7 +8,7 @@ import "./Newsletter.css";
 // import newsImg2 from "../../assets/newsletter2.jpg";
 // import newsImg3 from "../../assets/newsletter3.jpg";
 // import newsImg4 from "../../assets/newsletter4.jpg";
-import newsImg from "../../assets/newsletter-ebook.jpg";
+import newsImg from "../../assets/newsletter-ebook.png";
 
 const Newsletter = ({ showPopup, handleClosePopup }) => {
   // const userState = useSelector((state) => state.user);
