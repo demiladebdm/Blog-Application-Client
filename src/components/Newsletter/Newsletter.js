@@ -177,7 +177,6 @@ const Newsletter = ({ showPopup, handleClosePopup }) => {
                 >
                   Built with ConvertKit
                 </a> */}
-                Hello 
               </section>
             </section>
           </form>
