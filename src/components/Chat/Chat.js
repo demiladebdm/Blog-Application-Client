@@ -13,8 +13,10 @@ const Chat = () => {
   };
 
   return (
-    <section className="chat__image" onClick={handleChat}>
-      <img src={chatImg} alt="Chat" />
+    <section className="chat">
+      <section className="chat__image" onClick={handleChat}>
+        <img src={chatImg} alt="Chat" />
+      </section>
     </section>
   );
 };

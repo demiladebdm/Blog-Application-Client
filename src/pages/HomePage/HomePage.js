@@ -62,6 +62,7 @@ const HomePage = () => {
           <HomeBlog />
         </section>
       </Suspense>
+      
       {showPopupPage && (
         <Suspense fallback={<Loader />}>
           <ECard
