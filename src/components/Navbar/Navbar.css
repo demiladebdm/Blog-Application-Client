@@ -191,20 +191,24 @@
     margin-top: -10px;
     margin-bottom: -15px;
     transition: all 0.5s ease-out;
-    width:80%;
-    height: 2rem;
+    width: 80%;
+    height: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    list-style: none;
   }
-
+  
   .dropdown__list .dropdown__list__link {
+    color: lightgrey;
+    text-decoration: none;
     height: 40px;
     width: 100%;
-    font-size: 18px;
+    font-size: 16px;
+    text-transform: capitalize;
   }
 
   .dropdown__list .dropdown__list__link:hover {
-    color: #000;
+    color: var(--primary);
   }
 }
