@@ -1,7 +1,7 @@
 /* Card.css */
 
 .card {
-  background: var(--theme);
+  background: #747474;
   color: var(--white);
   display: flex;
   flex-direction: column;
@@ -10,8 +10,9 @@
 
 .card__title {
   text-align: center;
-  font-size: 2rem;
+  font-size: 4rem;
   font-weight: 700;
+  margin-top: 1rem;
 }
 
 .card__all__content {
