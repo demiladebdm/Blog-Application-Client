@@ -2,84 +2,97 @@ import React from "react";
 
 import "./Footer.css";
 import { Link } from "react-router-dom";
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Footer = () => {
   const Logo =
     "https://res.cloudinary.com/dlmd26faz/image/upload/v1697239340/Blog/Static/logo_afxtss.png";
 
+  const navigationLinks = [
+    { text: "Home", link: "/" },
+    { text: "About", link: "/about" },
+    { text: "Contact", link: "/contact" },
+    { text: "Brokers", link: "/brokers?cat=brokers" },
+  ];
+
+  const contactInfoData = [
+    // { icon: Location, text: "92 Cherry Drive Uniondale, NY 11553" },
+    { icon: "fa fa-envelope", text: "wolstreetfinance@gmail.com" },
+    { icon: "fa fa-phone", text: "+234 810 159 1413" },
+  ];
+
+  const socialMediaLinks = [
+    { icon: "fab fa-facebook-f", link: "#" },
+    {
+      icon: "fab fa-twitter",
+      link: "https://x.com/BoyHedger?t=3SC9pKJiu-28TNlOmoVD1Q&s=09",
+    },
+    {
+      icon: "fab fa-instagram",
+      link: "https://instagram.com/wolstreetfinance?utm_source=qr&igshid=MzNlNGNkZWQ4Mg==",
+    },
+    { icon: "fab fa-linkedin-in", link: "#" },
+    { icon: "fab fa-telegram", link: "https://t.me/wolstreetfinance" },
+    {
+      icon: "fab fa-youtube",
+      link: "https://www.youtube.com/@WolstreetFinance",
+    },
+  ];
+
   return (
-    <section className="footer">
-      <section className="footer__section footer__section__padding">
-        <section className="footer__section__links">
-          <section className="footer__section__logo">
-            <img src={Logo} alt="Footer Logo" />
+    <footer className="footer-distributed">
+      <div className="footer-left">
+        <h3>
+          Wolstreet<span>Finance</span>
+        </h3>
+        <p className="footer-links">
+          {navigationLinks.map((link, index) => (
+            <React.Fragment key={index}>
+              <Link to={link.link}>{link.text}</Link>
+              {index < navigationLinks.length - 1 && " | "}
+            </React.Fragment>
+          ))}
+        </p>
+        <p className="footer-company-name">
+          Copyright © 2021 <strong>Wolstreet Finance</strong> All rights
+          reserved
+        </p>
+      </div>
+
+      <div className="footer-center">
+        {contactInfoData.map((info, index) => (
+          <div key={index}>
+            <i className={info.icon}></i>
+            <p>{info.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="footer-right">
+        <p className="footer-company-about">
+          <span>About the company</span>
+          <strong>Wolstreet Finance</strong> is a platform showcasing insightful
+          content on financial markets, offering trading strategies, market
+          analyses, and investment insights. Explore various trading techniques,
+          stay informed about market trends, and enhance your trading skills
+          with Wolstreet Finance.
+        </p>
+        <div className="footer-icons">
+          <section className="social-icons">
+            {socialMediaLinks.map((socialMedia, index) => (
+              <a
+                key={index}
+                href={socialMedia.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className={socialMedia.icon}></i>
+              </a>
+            ))}
           </section>
-          <section className="footer__section__link__container">
-            <section className="footer__section__link">
-              <h4>Blog</h4>
-              {/* <a href="/employers">
-                <p>Forex</p>
-              </a> */}
-              <Link to={`/blog?cat=forex`}>Forex</Link>
-              <Link to={`/blog?cat=binary-options`}>Binary Options</Link>
-              <Link to={`/blog?cat=economics`}>Economics</Link>
-              {/* <a href="/employers">
-                <p>Binary Options</p>
-              </a>
-              <a href="/employers">
-                <p>Economics</p>
-              </a> */}
-            </section>
-            <section className="footer__section__link">
-              <h4>About</h4>
-              <a href="/employers">
-                <p>Careers</p>
-              </a>
-              <a href="/employers">
-                <p>Sponsorship</p>
-              </a>
-              <a href="/employers">
-                <p>Contact</p>
-              </a>
-            </section>
-            <section className="footer__section__link">
-              <h4>Private Policy</h4>
-              <a href="/employers">
-                <p>Disclaimer</p>
-              </a>
-              <a href="/employers">
-                <p>Scam Alert</p>
-              </a>
-            </section>
-            <section className="footer__section__link">
-              <h4>Members Login</h4>
-              <a href="/employers">
-                <p>Sitemap</p>
-              </a>
-            </section>
-          </section>
-        </section>
-        <section className="footer__section__bottom">
-          <section className="footer__section__bottom__socials">
-            <a href="/terms">
-              <p>Terms and Conditions</p>
-            </a>
-            <a href="/terms">
-              <p>Privacy</p>
-            </a>
-            <a href="/terms">
-              <p>Terms and Conditions</p>
-            </a>
-            <a href="/terms">
-              <p>Security</p>
-            </a>
-          </section>
-          <section className="footer__section__bottom__category">
-            <p>All rights reserved</p>
-          </section>
-        </section>
-      </section>
-    </section>
+        </div>
+      </div>
+    </footer>
   );
 };
 

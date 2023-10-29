@@ -35,7 +35,10 @@ const Card = ({ showPopupPage }) => {
       </section>
       <section className="card__all__content">
         {cardData.map((card, index) => (
-          <section key={index} className="card__container">
+          <section
+            key={index}
+            className="card__container"
+          >
             <section className="card__container__title">{card.title}</section>
             <section className="card__container__image">
               <img src={CardImage} alt="Card" />

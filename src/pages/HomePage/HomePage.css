@@ -1,9 +1,21 @@
-.home {
-  height: calc(100vh - 14vh);
-  background: var(--theme);
+.homepage {
+  /* background: var(--theme); */
   color: var(--white);
   display: flex;
+  flex-direction: column;
+  /* gap: 2rem; */
   overflow: hidden;
+  /* border: 2px solid red; */
+  overflow: hidden;
+  min-width: 700px;
+
+  /* background: var(--theme);
+  color: var(--white);
+  display: grid;
+  grid-template-columns: 65% 35%;
+  gap: 2rem;
+  overflow: hidden;
+  border: 2px solid red; */
 }
 
 /* .popup__overlay {
@@ -116,13 +128,21 @@
 } */
 
 .home__left {
-  width: 65%;
+  /* width: 65%;
   margin-left: 2rem;
   font-size: 2rem;
   font-weight: 700;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center; */
+
+  background: var(--theme);
+  color: var(--white);
+  display: grid;
+  grid-template-columns: 65% 35%;
+  gap: 2rem;
+  overflow: hidden;
+  /* border: 2px solid orange; */
 }
 
 .hello {
@@ -150,17 +170,28 @@
   height: 100vh;
 }
 
+.homeAll {
+  /* border: 2px solid purple; */
+  height: 100%;
+}
+.homeCard {
+  /* height: 100%; */
+}
+.homeBlog {
+  /* height: 100vh; */
+}
 
 @media (max-width: 768px) {
-  .home {
-    flex-direction: column;
+  .homepage {
+    grid-template-columns: 1fr; /* Adjust for a single column on smaller screens */
     height: auto; /* Remove fixed height on small screens */
   }
 
   .home__left,
   .home__right {
-    width: 100%;
-    margin: 0;
+    /* width: 100%; */
+    /* Remove width and margin properties */
+    /* margin: 0; */
   }
 
   .home__left {

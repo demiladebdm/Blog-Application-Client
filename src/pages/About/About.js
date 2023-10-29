@@ -9,8 +9,6 @@ import ECard from "../../components/ECard/ECard";
 const About = () => {
   const [showPopup, setShowPopup] = useState(false);
 
-  console.log("pop", showPopup);
-
   const handleClosePopup = () => {
     setShowPopup(!showPopup);
   };

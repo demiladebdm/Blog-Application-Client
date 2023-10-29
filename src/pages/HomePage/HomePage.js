@@ -37,10 +37,9 @@ const HomePage = () => {
     setShowPopup(false);
   };
 
-   const handleClosePopupPage = () => {
-     setShowPopupPage(false);
-   };
-
+  const handleClosePopupPage = () => {
+    setShowPopupPage(false);
+  };
 
   return (
     <section className="homepage">
@@ -53,9 +52,15 @@ const HomePage = () => {
             />
           </Suspense>
         )} */}
-        <Home />
-        <Card showPopupPage={handleShowPopupPage} />
-        <HomeBlog />
+        <section className="homeAll">
+          <Home />
+        </section>
+        <section className="homeCard">
+          <Card showPopupPage={handleShowPopupPage} />
+        </section>
+        <section className="homeBlog">
+          <HomeBlog />
+        </section>
       </Suspense>
       {showPopupPage && (
         <Suspense fallback={<Loader />}>
