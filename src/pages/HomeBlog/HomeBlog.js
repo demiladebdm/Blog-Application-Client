@@ -51,25 +51,27 @@ const HomeBlog = () => {
     <section className="blogs">
       <Suspense fallback={<Loader />}>
         <section className="blog__container">
-          {posts.map((post) => (
-            <article key={post._id} className="blog__home">
+          {posts.map((firstFewPosts) => (
+            <article key={firstFewPosts._id} className="blog__home">
               <Suspense fallback={<Loader />}>
                 <section className="blog__img">
-                  <img src={post.photo} alt="Blog" />
+                  <img src={firstFewPosts.photo} alt="Blog" />
                 </section>
                 <section className="blog__details">
-                  <h3 className="blog__title">{post.title}</h3>
+                  <h3 className="blog__title">{firstFewPosts.title}</h3>
                   <h4 className="blog__category">
-                    {post.categories
+                    {firstFewPosts.categories
                       ?.map((category) => category.name)
                       .join(", ")}{" "}
-                    <span>{new Date(post.createdAt).toDateString()}</span>
+                    <span>
+                      {new Date(firstFewPosts.createdAt).toDateString()}
+                    </span>
                   </h4>
                   <p
                     className="blog__info"
-                    dangerouslySetInnerHTML={{ __html: post.desc }}
+                    dangerouslySetInnerHTML={{ __html: firstFewPosts.desc }}
                   />
-                  <button onClick={() => handleReadMore(post._id)}>
+                  <button onClick={() => handleReadMore(firstFewPosts._id)}>
                     Read more ...
                   </button>
                 </section>

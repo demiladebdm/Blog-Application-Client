@@ -64,7 +64,7 @@ const Home = () => {
           </p>
 
           <section className="read__more">
-            <Link className="read__more__button" to="/about">Read More ...</Link>
+            <Link className="read__more__button" to="/about">Read More</Link>
           </section>
         </section>
 
