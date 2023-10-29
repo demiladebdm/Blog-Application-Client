@@ -1,0 +1,25 @@
+/* SocialShareButtons.css */
+
+.social__share__buttons {
+  display: flex;
+  gap: 10px; /* Adjust the gap between icons as needed */
+}
+
+.social__share__icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007bff; /* You can set a background color if needed */
+  border-radius: 50%;
+  width: 30px; /* Set the width of the icons */
+  height: 30px; /* Set the height of the icons */
+  color: #fff; /* Set the color of the icons */
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.social__share__icons:hover {
+  background-color: #0056b3; /* Change the background color on hover */
+}
+
+/* Add any other styles as needed */

@@ -2,7 +2,6 @@ import React from "react";
 
 import "./Footer.css";
 import { Link } from "react-router-dom";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Footer = () => {
   const Logo =

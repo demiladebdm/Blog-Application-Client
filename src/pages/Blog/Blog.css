@@ -1,7 +1,9 @@
 .blogs {
-  padding: 0 0 5rem 0;
+  /* padding: 0 0 5rem 0; */
   /* background: var(--theme);
   color: var(--white); */
+  /* border: 4px solid brown; */
+  margin-top: 0;
 }
 
 .blog__container__title {

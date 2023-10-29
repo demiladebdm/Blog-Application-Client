@@ -8,12 +8,15 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 // import BlogImg from "../../assets/test_image.jpeg";
 import "./BlogDetail.css";
 import Loader from "../../components/Loader/Loader";
+import SocialShareButtons from "../../components/SocialAhareButtons/SocialShareButtons";
 
 const BlogDetail = () => {
   // const url = "http://localhost:5000/api";
   const url = process.env.REACT_APP_API_URL;
+  const shareUrl = encodeURI(`https://blog-application-blogclient.vercel.app/`);
+  const shareTitle = encodeURIComponent(`How Generative AI Is Creeping Into EV Battery Development`);
   const { id } = useParams();
-
+  
   // const { search } = useLocation();
   // const [posts, setPosts] = useState([]);
   const [post, setPost] = useState(null);
@@ -96,8 +99,9 @@ const BlogDetail = () => {
                 />
                 {/* <button>Read more ...</button> */}
 
-                <section>
+                <section className="single__blog__share">
                   <h2>Share on:</h2>
+                  <SocialShareButtons url={shareUrl} title={shareTitle} />
                 </section>
               </section>
             </Suspense>
