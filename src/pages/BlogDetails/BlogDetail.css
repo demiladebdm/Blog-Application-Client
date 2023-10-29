@@ -95,13 +95,24 @@
 }
 
 .single__blog__action {
-  background-color: red;
+  background-color: lightgreen;
   display: flex;
   height: 2rem;
   padding: 0 0.5rem;
   gap: 1rem;
   align-items: center;
   justify-content: flex-end;
+}
+
+.single__blog__action__link {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.single__blog__action__button {
+  cursor: pointer;
+  color: var(--github);
+  text-decoration: none;
 }
 
 .single__blog__category {

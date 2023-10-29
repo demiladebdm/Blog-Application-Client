@@ -77,12 +77,12 @@ const BlogDetail = () => {
               <section className="single__blog__details">
                 <h3 className="single__blog__title">{post.title}</h3>
                 <section className="single__blog__action">
-                  <Link to={`/edit/${post._id}`}>
+                  <Link className="single__blog__action__link" to={`/edit/${post._id}`}>
                     <p>
                       <FaEdit /> Edit
                     </p>
                   </Link>
-                  <p onClick={openDeleteModal}>
+                  <p className="single__blog__action__button" onClick={openDeleteModal}>
                     <FaTrash /> Delete
                   </p>
                 </section>
