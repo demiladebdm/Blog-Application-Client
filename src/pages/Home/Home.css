@@ -180,6 +180,17 @@
   text-decoration: none;
 }
 
+@media screen and (max-width: 870px) {
+  .hello {
+    margin-top: 2rem;
+  }
+  .intro__text {
+    margin-top: -2rem;
+  }
+  .intro__paragraph {
+    margin-top: -2rem;
+  }
+}
 
 @media (min-width: 768px) {
   .home {
