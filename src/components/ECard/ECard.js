@@ -1,16 +1,15 @@
 import React from "react";
 
 import "./ECard.css";
-import EBookImg from "../../assets/newsletter-ebook.png";
+// import EBookImg from "../../assets/newsletter-ebook.png";
 
-const ECard = ({ showPopup, handleClosePopup }) => {
+const ECard = ({ showPopup, handleClosePopup, selectedImage }) => {
   const bookItems = [
     "Reveal the unfiltered truth about trading",
     "Show you the proper mindset pro traders have",
     "Teach you how you can profit in Bull and Bear markets, even in a recession",
     "Expose the sham of market gurus and how you can escape from their sham",
   ];
-
 
   return (
     <section className={`ecard ${showPopup ? "show" : ""}`}>
@@ -20,7 +19,9 @@ const ECard = ({ showPopup, handleClosePopup }) => {
       <section className="ecard__content">
         <section className="ecard__top">
           <section className="ecard__top__image">
-            <img src={EBookImg} />
+            {/* <img src={EBookImg} /> */}
+            {/* <img src={selectedImage || EBookImg} alt="EBook" /> */}
+            <img src={selectedImage} alt="EBook" />
           </section>
         </section>
 

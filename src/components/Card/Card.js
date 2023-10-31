@@ -27,8 +27,8 @@ const Card = ({ showPopupPage }) => {
     },
   ];
 
-  const handleButtonClick = () => {
-    showPopupPage();
+  const handleButtonClick = (image) => {
+    showPopupPage(image);
   };
 
   return (
@@ -38,10 +38,7 @@ const Card = ({ showPopupPage }) => {
       </section>
       <section className="card__all__content">
         {cardData.map((card, index) => (
-          <section
-            key={index}
-            className="card__container"
-          >
+          <section key={index} className="card__container">
             <section className="card__container__title">{card.title}</section>
             <section className="card__container__image">
               <img src={card.image} alt="Card" />
@@ -53,7 +50,7 @@ const Card = ({ showPopupPage }) => {
               <Link
                 // to={card.link}
                 className="card__container__button__link"
-                onClick={handleButtonClick}
+                onClick={() => handleButtonClick(card.image)}
               >
                 {card.buttonText} <span>{card.buttonSpan}</span>
               </Link>
