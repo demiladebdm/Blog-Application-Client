@@ -120,6 +120,7 @@
   .navbar {
     width: 100%;
     position: fixed;
+    height: 15vh;
     /* background: red; */
     top: 0;
     /* overflow-y: hidden; */
@@ -157,7 +158,7 @@
   .navbar2__center__links {
     width: 100%;
     /* height: 60vh; */
-    background: red;
+    /* background: red; */
     background: var(--theme);
     margin-top: 6rem;
     display: flex;
