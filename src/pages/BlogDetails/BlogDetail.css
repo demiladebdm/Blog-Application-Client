@@ -46,6 +46,7 @@
   /* border: 14px solid red; */
   /* background: red; */
   width: 100%;
+  min-width: 700px;
 }
 
 .single__blog__container {
@@ -59,8 +60,22 @@
   grid-template-columns: 1fr;
 }
 
+.modal__cancel {
+  background: none;
+  border: 1px solid var(--theme);
+}
+
+.modal__delete {
+  background: var(--github);
+  color: var(--white);
+  border: none;
+}
+
+
+
 @media (max-width: 768px) {
   .single__blog__container {
+    width: 80%;
     padding-top: 8rem;
   }
 }
@@ -106,7 +121,6 @@
 }
 
 .single__blog__action {
-  background-color: lightgreen;
   display: flex;
   height: 2rem;
   padding: 0 0.5rem;

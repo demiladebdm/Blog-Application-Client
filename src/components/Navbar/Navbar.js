@@ -70,7 +70,9 @@ const Navbar = () => {
         const data = await response;
 
         // Exclude the category named "Brokers"
-        const filteredCategories = data.filter(category => category.name !== "brokers");
+        const filteredCategories = data.filter(
+          (category) => category.name !== "brokers"
+        );
 
         setCategoryOptions(filteredCategories);
       } catch (error) {
@@ -82,8 +84,6 @@ const Navbar = () => {
   }, [userToken]);
 
   return (
-    // <nav className={`navbar ${showNavbar ? "show" : ""}`}>
-    // <nav className={showNavbar ? "hambugger" : "navbar"}>
     <nav className="navbar">
       <section className="nav__height"></section>
       {/* <div className="hamburger" onClick={toggleNavbar}>
@@ -97,11 +97,6 @@ const Navbar = () => {
       </section>
 
       <section className="navbar__center">
-        {/* <section className="navbar__left__mobile">
-          <Link to="/">
-            <img src={Logo} alt="Blog Logo" />
-          </Link>
-        </section> */}
         <ul
           className="navbar__center__links"
           onClick={() => setShowNavbar(false)}
@@ -186,19 +181,17 @@ const Navbar = () => {
             </>
           )}
         </ul>
-        {/* {loading && <Loader />} */}
       </section>
 
-      {/* <section className="navbar__right"></section> */}
       <section
         className="navbar2__center"
-        style={
-          showNavbar ? { background: "#1a1a1a" } : { background: "transparent" }
-        }
+        // style={
+        //   showNavbar ? { background: "#1a1a1a" } : { background: "transparent" }
+        // }
       >
         <div
           className="hamburger"
-          style={showNavbar ? { right: "1rem" } : { left: "1rem" }}
+          // style={showNavbar ? { right: "1rem" } : { right: "1rem" }}
           onClick={toggleNavbar}
         >
           {showNavbar ? <FaTimes /> : <FaBars />}
@@ -207,18 +200,17 @@ const Navbar = () => {
           <ul className="navbar2__center__links">
             <li
               className="navbar2__center__link"
-              onClick={() => setShowNavbar(false)}
+              onClick={() => {
+                setShowNavbar(false);
+                toggleNavbar();
+              }}
             >
               <Link className="navLinks" to="/">
                 Home
               </Link>
             </li>
 
-            <li
-              className="navbar2__center__link"
-
-              // onMouseLeave={toggleDropdown}
-            >
+            <li className="navbar2__center__link">
               <span
                 className="navLinks blog__dropdown"
                 onClick={toggleDropdown}
@@ -231,7 +223,11 @@ const Navbar = () => {
                 <li
                   key={category._id}
                   className="navbar2__center__link dropdown__list"
-                  onClick={closeDropdown}
+                  onClick={() => {
+                    closeDropdown();
+                    setShowNavbar(false);
+                    toggleNavbar();
+                  }}
                 >
                   <Link
                     to={`/blog?cat=${category.name}`}
@@ -253,7 +249,7 @@ const Navbar = () => {
               className="navbar2__center__link"
               onClick={() => setShowNavbar(false)}
             >
-              <Link className="navLinks" to="/brokers">
+              <Link className="navLinks" to="/brokers?cat=brokers">
                 Brokers
               </Link>
             </li>
@@ -267,7 +263,13 @@ const Navbar = () => {
             </li>
             {userState.userInfo ? (
               <>
-                <li className="navbar2__center__link">
+                <li
+                  className="navbar2__center__link"
+                  onClick={() => {
+                    setShowNavbar(false);
+                    toggleNavbar(); // Close the navbar
+                  }}
+                >
                   <Link className="navLinks" to="/write">
                     Write
                   </Link>
@@ -276,7 +278,10 @@ const Navbar = () => {
                   type="button"
                   disabled={loading}
                   className="logout__button"
-                  onClick={logoutHandler}
+                  onClick={() => {
+                    logoutHandler();
+                    toggleNavbar(); // Close the navbar
+                  }}
                 >
                   {loading ? "Logging out..." : "Logout"}
                 </button>

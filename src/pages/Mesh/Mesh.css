@@ -8,4 +8,5 @@
     font-weight: 900;
     background: var(--white);
     color: var(--theme);
+    min-width: 700px;
 }

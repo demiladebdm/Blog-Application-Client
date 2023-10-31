@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 
 import "./Card.css";
 import CardImage from "../../assets/newsletter-ebook.png";
+import CardImagePaid from "../../assets/newsletter-ebook-paid.png";
 
 const Card = ({ showPopupPage }) => {
   const cardData = [
     {
+      image: CardImage,
       title: "NOT THE HOLY GRAIL",
       description:
         "Get insight into the inner workings of the trading world. A must read for every trader.",
@@ -15,6 +17,7 @@ const Card = ({ showPopupPage }) => {
       buttonSpan: "(Free)",
     },
     {
+      image: CardImagePaid,
       title: "PRICE ACTION TRADING HACKED",
       description:
         "Discover the secret to price action trading including over 30 proprietary candlesticks patterns that could help you beat the market.",
@@ -41,7 +44,7 @@ const Card = ({ showPopupPage }) => {
           >
             <section className="card__container__title">{card.title}</section>
             <section className="card__container__image">
-              <img src={CardImage} alt="Card" />
+              <img src={card.image} alt="Card" />
             </section>
             <section className="card__container__desc">
               {card.description}

@@ -8,9 +8,21 @@ import Chat from "./components/Chat/Chat";
 import Loader from "./components/Loader/Loader";
 import Footer from "./components/Footer/Footer";
 
+import HomePage from "./pages/HomePage/HomePage";
+// import Home from "./pages/Home/Home";
+// import About from "./pages/About/About";
+// import Blog from "./pages/Blog/Blog";
+// import BlogDetail from "./pages/BlogDetails/BlogDetail";
+// import Contact from "./pages/Contact/Contact";
+// import Brokers from "./pages/Brokers/Brokers";
+// import Mesh from "./pages/Mesh/Mesh";
+// import Write from "./pages/Write/Write";
+// import Register from "./pages/Authentication/Register";
+// import Login from "./pages/Authentication/Login";
+
 // Use lazy to import components dynamically
-const HomePage = lazy(()=> import("./pages/HomePage/HomePage"));
-const Home = lazy(() => import("./pages/Home/Home"));
+// const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+// const Home = lazy(() => import("./pages/Home/Home"));
 const About = lazy(() => import("./pages/About/About"));
 const Blog = lazy(() => import("./pages/Blog/Blog"));
 const BlogDetail = lazy(() => import("./pages/BlogDetails/BlogDetail"));
@@ -25,26 +37,31 @@ function App() {
   return (
     <section className="App">
       <Router>
-        <Navbar />
-        <Suspense fallback={<Loader />}>
-          <Routes>
-            <Route path="/" element={<HomePage />}></Route>
-            <Route path="/home" element={<Home />}></Route>
-            <Route path="/about" element={<About />}></Route>
-            <Route path="/blog" element={<Blog />}></Route>
-            <Route path="/blog/:id" element={<BlogDetail />}></Route>
-            <Route path="/contact" element={<Contact />}></Route>
-            <Route path="/brokers" element={<Brokers />}></Route>
-            <Route path="/mesh" element={<Mesh />}></Route>
-            <Route path="/write" element={<Write />}></Route>
+        <div style={{ zIndex: "888" }}>
+          <Navbar />
+        </div>
 
-            <Route path="/register" element={<Register />}></Route>
-            <Route path="/login" element={<Login />}></Route>
-          </Routes>
+        <div className="content">
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              <Route path="/" element={<HomePage />}></Route>
+              {/* <Route path="/home" element={<Home />}></Route> */}
+              <Route path="/about" element={<About />}></Route>
+              <Route path="/blog" element={<Blog />}></Route>
+              <Route path="/blog/:id" element={<BlogDetail />}></Route>
+              <Route path="/contact" element={<Contact />}></Route>
+              <Route path="/brokers" element={<Brokers />}></Route>
+              <Route path="/mesh" element={<Mesh />}></Route>
+              <Route path="/write" element={<Write />}></Route>
 
-          <Chat />
-          <Footer />
-        </Suspense>
+              <Route path="/register" element={<Register />}></Route>
+              <Route path="/login" element={<Login />}></Route>
+            </Routes>
+
+            <Chat />
+            <Footer />
+          </Suspense>
+        </div>
         <Toaster />
       </Router>
     </section>

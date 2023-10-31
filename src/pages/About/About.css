@@ -1,5 +1,6 @@
 .about {
-  width: 95vw;
+  width: 100%;
+  min-width: 700px;
   padding: auto;
 }
 
@@ -24,7 +25,7 @@
 .about__me {
   padding: 0 1rem;
   line-height: 3;
-  width: calc(100% - 8rem);
+  /* width: calc(100% - 8rem); */
 }
 
 .about__me__content__info span {

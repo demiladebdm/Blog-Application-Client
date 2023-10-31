@@ -21,7 +21,10 @@ const Footer = () => {
   ];
 
   const socialMediaLinks = [
-    { icon: "fab fa-facebook-f", link: "#" },
+    {
+      icon: "fab fa-facebook-f",
+      link: "https://www.facebook.com/profile.php?id=61552720400660&mibextid=ZbWKwL",
+    },
     {
       icon: "fab fa-twitter",
       link: "https://x.com/BoyHedger?t=3SC9pKJiu-28TNlOmoVD1Q&s=09",
@@ -30,7 +33,7 @@ const Footer = () => {
       icon: "fab fa-instagram",
       link: "https://instagram.com/wolstreetfinance?utm_source=qr&igshid=MzNlNGNkZWQ4Mg==",
     },
-    { icon: "fab fa-linkedin-in", link: "#" },
+    // { icon: "fab fa-linkedin-in", link: "#" },
     { icon: "fab fa-telegram", link: "https://t.me/wolstreetfinance" },
     {
       icon: "fab fa-youtube",

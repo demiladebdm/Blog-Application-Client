@@ -43,8 +43,8 @@ const HomePage = () => {
 
   return (
     <section className="homepage">
-      <Suspense fallback={<Loader />}>
-        {/* {showPopup && (
+      {/* <Suspense fallback={<Loader />}> */}
+      {/* {showPopup && (
           <Suspense fallback={<Loader />}>
             <Newsletter
               showPopup={showPopup}
@@ -52,17 +52,13 @@ const HomePage = () => {
             />
           </Suspense>
         )} */}
-        <section className="homeAll">
-          <Home />
-        </section>
-        <section className="homeCard">
-          <Card showPopupPage={handleShowPopupPage} />
-        </section>
-        <section className="homeBlog">
-          <HomeBlog />
-        </section>
+      <Home />
+      <Suspense fallback={<Loader />}>
+        <Card showPopupPage={handleShowPopupPage} />
+        <HomeBlog />
       </Suspense>
-      
+      {/* </Suspense> */}
+
       {showPopupPage && (
         <Suspense fallback={<Loader />}>
           <ECard

@@ -1,11 +1,12 @@
-.blogs {
+.brokers__blogs {
   margin-top: 2rem;
   padding: 0 0 5rem 0;
+  min-width: 700px;
   /* background: var(--theme);
   color: var(--white); */
 }
 
-.blog__container__title {
+.brokers__blog__container__title {
   position: relative;
   color: var(--white);
   width: 100%;
@@ -16,7 +17,7 @@
   justify-content: center;
   margin-bottom: 3.5rem;
 }
-.blog__container__title:after {
+.brokers__blog__container__title:after {
   content: "";
   position: absolute;
   top: 0;
@@ -31,7 +32,7 @@
   object-fit: cover;
   width: 100%;
 } */
-.blog__container__background {
+.brokers__blog__container__background {
   position: absolute;
   top: 0;
   left: 0;
@@ -42,7 +43,7 @@
   z-index: -1;
 }
 
-.blogs__title {
+.brokers__blogs__title {
   font-size: 5rem;
   text-transform: capitalize;
   letter-spacing: 0.3rem;
@@ -51,7 +52,7 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.blogs__subtitle {
+.brokers__blogs__subtitle {
   font-size: 2.5rem;
   text-transform: capitalize;
   letter-spacing: 0.3rem;
@@ -60,7 +61,7 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.blog__container {
+.brokers__blog__container {
   width: 85vw;
   max-width: 1170px;
   /* width: 95vw;
@@ -72,7 +73,7 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-.blog__brokers {
+.brokers__blog__brokers {
   margin-bottom: 2rem;
   display: grid;
   grid-template-rows: auto 1fr;
@@ -80,13 +81,13 @@
   box-shadow: 2px 5px 3px 0 rgba(0, 0, 0, 0.5);
 }
 
-.blog__img {
+.brokers__blog__img {
   height: 15rem;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
 }
 
-.blog__img img {
+.brokers__blog__img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -94,11 +95,11 @@
   border-top-right-radius: 0.5rem;
 }
 
-.blog__details {
+.brokers__blog__details {
   padding: 0.5rem 1.5rem 1.5rem 1.5rem;
 }
 
-.blog__details button {
+.brokers__blog__details button {
   border: none;
   background: transparent;
   color: var(--primary);
@@ -106,7 +107,7 @@
   cursor: pointer;
 }
 
-.blog__title {
+.brokers__blog__title {
   margin-bottom: 0.3rem;
   font-size: 2rem;
   text-transform: capitalize;
@@ -118,7 +119,7 @@
   -webkit-box-orient: vertical;
 }
 
-.blog__category {
+.brokers__blog__category {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -127,13 +128,13 @@
   text-transform: capitalize;
 }
 
-.blog__category span {
+.brokers__blog__category span {
   font-size: small;
   font-weight: 500;
   color: #999;
 }
 
-.blog__info {
+.brokers__blog__info {
   margin: 1rem auto;
   color: #444;
   font-size: 0.9rem;
@@ -145,13 +146,19 @@
   -webkit-box-orient: vertical;
 }
 
-.blog__info h1 {
+.brokers__blog__info h1 {
   font-size: 1.5em;
   font-weight: bold;
 }
 
-.blog__info p {
+.brokers__blog__info p {
   font-size: 1em;
   font-weight: normal;
   text-decoration: none;
+}
+
+@media screen and (max-width: 870px) {
+  .brokers__blogs {
+    margin-top: 16vh;
+  }
 }

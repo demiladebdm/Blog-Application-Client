@@ -48,28 +48,28 @@ const Brokers = () => {
   };
 
   return (
-    <section className="blogs">
+    <section className="brokers__blogs">
       <Suspense fallback={<Loader />}>
-        <section className="blog__container">
+        <section className="brokers__blog__container">
           {posts.length === 0 ? (
             <p>Sorry, there is no stories yet for this category</p>
           ) : (
             posts.map((post) => (
-              <article key={post._id} className="blog__brokers">
+              <article key={post._id} className="brokers__blog__brokers">
                 <Suspense fallback={<Loader />}>
-                  <section className="blog__img">
+                  <section className="brokers__blog__img">
                     <img src={post.photo} alt="Blog" />
                   </section>
-                  <section className="blog__details">
-                    <h3 className="blog__title">{post.title}</h3>
-                    <h4 className="blog__category">
+                  <section className="brokers__blog__details">
+                    <h3 className="brokers__blog__title">{post.title}</h3>
+                    <h4 className="brokers__blog__category">
                       {post.categories
                         ?.map((category) => category.name)
                         .join(", ")}{" "}
                       <span>{new Date(post.createdAt).toDateString()}</span>
                     </h4>
                     <p
-                      className="blog__info"
+                      className="brokers__blog__info"
                       dangerouslySetInnerHTML={{ __html: post.desc }}
                     />
                     <button onClick={() => handleReadMore(post._id)}>

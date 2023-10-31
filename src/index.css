@@ -20,9 +20,10 @@ body {
   font-family: 'Red Hat Display', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  width: 100%;
+  /* width: 100%;
   overflow-x: hidden;
-  min-width: 650px;
+  min-width: 650px; */
+  /* background: 2px solid red; */
 }
 
 code {

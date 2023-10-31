@@ -32,7 +32,7 @@ const HomeBlog = () => {
         const data = await response;
 
         // Extract the first few posts
-        const firstFewPosts = data.slice(0, 4);
+        const firstFewPosts = data.slice(0, 6);
 
         setPosts(firstFewPosts);
       } catch (error) {
@@ -44,22 +44,23 @@ const HomeBlog = () => {
   }, [search, userToken]);
 
   const handleReadMore = (firstFewPosts) => {
+    console.log("route", firstFewPosts)
     navigate(`/blog/${firstFewPosts}`);
   };
 
   return (
-    <section className="blogs">
+    <section className="home__blogs">
       <Suspense fallback={<Loader />}>
-        <section className="blog__container">
+        <section className="home__blog__container">
           {posts.map((firstFewPosts) => (
-            <article key={firstFewPosts._id} className="blog__home">
+            <article key={firstFewPosts._id} className="home__blog__home">
               <Suspense fallback={<Loader />}>
-                <section className="blog__img">
+                <section className="home__blog__img">
                   <img src={firstFewPosts.photo} alt="Blog" />
                 </section>
-                <section className="blog__details">
-                  <h3 className="blog__title">{firstFewPosts.title}</h3>
-                  <h4 className="blog__category">
+                <section className="home__blog__details">
+                  <h3 className="home__blog__title">{firstFewPosts.title}</h3>
+                  <h4 className="home__blog__category">
                     {firstFewPosts.categories
                       ?.map((category) => category.name)
                       .join(", ")}{" "}
@@ -68,7 +69,7 @@ const HomeBlog = () => {
                     </span>
                   </h4>
                   <p
-                    className="blog__info"
+                    className="home__blog__info"
                     dangerouslySetInnerHTML={{ __html: firstFewPosts.desc }}
                   />
                   <button onClick={() => handleReadMore(firstFewPosts._id)}>

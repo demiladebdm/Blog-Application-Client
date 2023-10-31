@@ -6,27 +6,26 @@ const SocialShareButtons = ({ url, title }) => {
   const socialMediaLinks = [
     {
       icon: "fab fa-facebook-f",
-      link: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-        url
-      )}`,
+      link: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
       class: "social__share__icons",
     },
     {
       icon: "fab fa-twitter",
-      link: `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
+       link: `https://twitter.com/intent/tweet?url=${url}&text=${title}`,
       class: "social__share__icons",
     },
-    {
-      icon: "fab fa-instagram",
-      link: "https://instagram.com/wolstreetfinance?utm_source=qr&igshid=MzNlNGNkZWQ4Mg==",
-      class: "social__share__icons",
-    },
-    { icon: "fab fa-linkedin-in", link: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, class: "social__share__icons" },
+    // {
+    //   icon: "fab fa-instagram",
+    //   link: "https://instagram.com/wolstreetfinance?utm_source=qr&igshid=MzNlNGNkZWQ4Mg==",
+    //   class: "social__share__icons",
+    // },
+    { icon: "fab fa-linkedin-in", link: `https://www.linkedin.com/sharing/share-offsite/?url=${url}`, class: "social__share__icons" },
     {
       icon: "fab fa-telegram",
-      link: `https://t.me/share/url?url=${encodeURIComponent(url)}`,
+      link: `https://t.me/share/url?url=${url}`,
       class: "social__share__icons",
     },
+    { icon: "fab fa-whatsapp", link: `https://api.whatsapp.com/send?text=${(title + ' ' + url)}`, class: "social__share__icons" }
     // {
     //   icon: "fab fa-youtube",
     //   link: "https://www.youtube.com/@WolstreetFinance",

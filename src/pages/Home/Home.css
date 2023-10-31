@@ -4,6 +4,7 @@
   color: var(--white);
   display: flex;
   overflow: hidden;
+  min-width: 700px;
 }
 
 /* .popup__overlay {
