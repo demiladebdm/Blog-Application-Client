@@ -12,7 +12,7 @@
   border: 0.5rem solid var(--white);
   border-radius: 20px;
   padding: 2rem 0;
-  z-index: 999;
+  z-index: 900;
 }
 
 .ecard .show {

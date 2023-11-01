@@ -50,6 +50,7 @@ const HomePage = () => {
       {showPopup && (
         <Suspense fallback={<Loader />}>
           <Newsletter
+            className="showPopupHomepage"
             showPopup={showPopup}
             handleClosePopup={handleClosePopup}
           />

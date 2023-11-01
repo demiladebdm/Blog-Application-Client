@@ -8,12 +8,26 @@
   /* opacity: 0; */
   opacity: 0.8;
   transition: opacity 0.3s ease-in-out;
-  z-index: 100;
+  z-index: 1000;
   background: var(--theme);
   color: var(--white);
   border-radius: 1.2rem;
   box-shadow: 0 40px 40px rgba(0, 0, 0, 0.5);
   border: 1px solid var(--white);
+  min-width: 700px;
+}
+
+@media screen and (max-width: 850px) {
+  .popup__overlay {
+    /* height: 90%;
+    width: 80%;
+    min-width: 700px; */
+    margin: 0 auto;
+    /* margin-left: 1rem;
+    margin-right: 1rem; */
+    box-sizing: border-box;
+    z-index: 999;
+  }
 }
 
 /* .popup__overlay {
