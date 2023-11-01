@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState, Suspense } from "react";
 // import { useSelector } from "react-redux";
 // import toast from "react-hot-toast";
 
 import "./Newsletter.css";
 import newsImg from "../../assets/newsletter-ebook.png";
+import { Link } from "react-router-dom";
+
+import Loader from "../../components/Loader/Loader";
+import ECard from "../ECard/ECard";
 
 const Newsletter = ({ showPopup, handleClosePopup }) => {
+  const [insideShowPopup, setInsideShowPopup] = useState(false);
   // const userState = useSelector((state) => state.user);
   //   const [showPopup, setShowPopup] = useState(false);
   // const [name, setName] = useState("");
@@ -113,6 +118,25 @@ const Newsletter = ({ showPopup, handleClosePopup }) => {
             {errorMessage && <p className="error__message">{errorMessage}</p>}
           </section> */}
 
+          {/* <Link
+            // className="about__me__button__link"
+            onClick={(e) => {
+              e.preventDefault();
+              // setShowPopup(true);
+            }}
+          >
+            Get Started Free
+          </Link> */}
+
+          {/* {showPopup && (
+            <Suspense fallback={<Loader />}>
+              <ECard
+                showPopup={showPopup}
+                handleClosePopup={handleClosePopup}
+              />
+            </Suspense>
+          )} */}
+
           <script src="https://f.convertkit.com/ckjs/ck.5.js" />
 
           <form
@@ -162,16 +186,6 @@ const Newsletter = ({ showPopup, handleClosePopup }) => {
               <section
                 className="formkit-powered-by-convertkit-container"
               >
-                {/* <a
-                  href="https://convertkit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic"
-                  data-element="powered-by"
-                  class="formkit-powered-by-convertkit"
-                  data-variant="dark"
-                  target="_blank"
-                  rel="nofollow"
-                >
-                  Built with ConvertKit
-                </a> */}
               </section>
             </section>
           </form>

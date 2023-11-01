@@ -19,7 +19,7 @@ const Write = () => {
   const [titleError, setTitleError] = useState("");
   const [categoryError, setCategoryError] = useState("");
   const [descError, setDescError] = useState("");
-  const [isImageLoading, setIsImageLoading] = useState(true);
+  const [isImageLoading, setIsImageLoading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   //   const { user } = useContext(Context);
 
@@ -49,6 +49,7 @@ const Write = () => {
 
   const handleFileChange = async (e) => {
     e.preventDefault();
+    setIsImageLoading(true);
     const file = e.target.files[0];
     const folderName = "Blog";
 
@@ -186,15 +187,9 @@ const Write = () => {
               <img src={cloudinaryUrl} alt="Title" />
             </section>
           )} */}
-          {!cloudinaryUrl && isImageLoading && (
-            <section className="uploading__image">
-              {/* Add your loading icon or message here */}
-              <Loader />
-            </section>
-          )}
-
           {cloudinaryUrl && (
             <section className="uploaded__image">
+              {isImageLoading && <Loader />} {/* Loader within the container */}
               <img
                 src={cloudinaryUrl}
                 alt="Title"
@@ -202,7 +197,17 @@ const Write = () => {
               />
             </section>
           )}
-          
+
+          {/* {cloudinaryUrl && (
+            <section className="uploaded__image">
+              <img
+                src={cloudinaryUrl}
+                alt="Title"
+                onLoad={() => setIsImageLoading(false)}
+              />
+            </section>
+          )} */}
+
           <section className="write__form__head">
             <span>Image</span>
             <label htmlFor="file__input">

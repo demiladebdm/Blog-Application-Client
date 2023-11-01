@@ -4,7 +4,8 @@ import chatImg from "../../assets/chat.png";
 import "./Chat.css"
 
 const Chat = () => {
-  const whatsappNumber = "+9039984143";
+  // const whatsappNumber = "+9039984143";
+  const whatsappNumber = "+8101591413";
 
   const handleChat = () => {
     // const whatsappLink = `https://wa.me/${whatsappNumber}`;

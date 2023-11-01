@@ -17,6 +17,12 @@
 
 @media screen and (max-width: 870px) {
   .content {
+    width: 100%;
+    min-width: 700px;
     margin-top: 14vh;
+    box-sizing: border-box;
+    /* width: 100%;
+    min-width: 700px;
+    overflow: hidden; */
   }
 }

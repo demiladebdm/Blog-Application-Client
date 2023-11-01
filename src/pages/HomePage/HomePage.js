@@ -1,5 +1,5 @@
-import React, { useState, useEffect, Suspense } from "react";
-// import React, { useState, useEffect, lazy, Suspense } from "react";
+// import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 
 // import bgImg from "../../assets/blog.png";
 // import bgImg from "../../assets/hero.png";
@@ -12,11 +12,11 @@ import HomeBlog from "../HomeBlog/HomeBlog";
 import Card from "../../components/Card/Card";
 import ECard from "../../components/ECard/ECard";
 
-// const Newsletter = lazy(() => import("../../components/Newsletter/Newsletter"));
+const Newsletter = lazy(() => import("../../components/Newsletter/Newsletter"));
 
 const HomePage = () => {
   // const bgImg = "https://res.cloudinary.com/dlmd26faz/image/upload/v1697238685/Blog/Static/blog_lihsdd.png";
-  // const [showPopup, setShowPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [showPopupPage, setShowPopupPage] = useState(false);
 
@@ -25,7 +25,7 @@ const HomePage = () => {
 
   useEffect(() => {
     const popupTimer = setTimeout(() => {
-      // setShowPopup(true);
+      setShowPopup(true);
     }, 3000);
 
     return () => clearTimeout(popupTimer);
@@ -36,9 +36,9 @@ const HomePage = () => {
     setShowPopupPage(true);
   };
 
-  // const handleClosePopup = () => {
-  //   setShowPopup(false);
-  // };
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
 
   const handleClosePopupPage = () => {
     setShowPopupPage(false);
@@ -47,14 +47,14 @@ const HomePage = () => {
   return (
     <section className="homepage">
       {/* <Suspense fallback={<Loader />}> */}
-      {/* {showPopup && (
-          <Suspense fallback={<Loader />}>
-            <Newsletter
-              showPopup={showPopup}
-              handleClosePopup={handleClosePopup}
-            />
-          </Suspense>
-        )} */}
+      {showPopup && (
+        <Suspense fallback={<Loader />}>
+          <Newsletter
+            showPopup={showPopup}
+            handleClosePopup={handleClosePopup}
+          />
+        </Suspense>
+      )}
       <Home />
       <Suspense fallback={<Loader />}>
         <Card showPopupPage={handleShowPopupPage} />

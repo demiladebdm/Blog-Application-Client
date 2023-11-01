@@ -147,7 +147,7 @@ const Navbar = () => {
           </li>
           <li className="navbar__center__link">
             <Link className="navLinks" to="/mesh">
-              Mesh
+              Merch
             </Link>
           </li>
           {userState.userInfo ? (
