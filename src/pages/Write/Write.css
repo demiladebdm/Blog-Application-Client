@@ -129,6 +129,10 @@
   border: none;
 }
 
+.write__form__button button:disabled {
+  cursor: not-allowed;
+}
+
 .error__message {
   font-size: 1rem;
   display: flex;
@@ -140,5 +144,4 @@
 .desc__error__message {
   font-size: 1rem;
   color: red;
-
 }

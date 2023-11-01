@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./ECard.css";
-// import EBookImg from "../../assets/newsletter-ebook.png";
+import EBookImg from "../../assets/newsletter-ebook.png";
 
 const ECard = ({ showPopup, handleClosePopup, selectedImage }) => {
   const bookItems = [
@@ -20,8 +20,8 @@ const ECard = ({ showPopup, handleClosePopup, selectedImage }) => {
         <section className="ecard__top">
           <section className="ecard__top__image">
             {/* <img src={EBookImg} /> */}
-            {/* <img src={selectedImage || EBookImg} alt="EBook" /> */}
-            <img src={selectedImage} alt="EBook" />
+            <img src={selectedImage || EBookImg} alt="EBook" />
+            {/* <img src={selectedImage} alt="EBook" /> */}
           </section>
         </section>
 

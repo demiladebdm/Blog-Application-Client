@@ -30,7 +30,11 @@ const Blog = () => {
         }
 
         const data = await response;
-        setPosts(data);
+        const sortedPosts = data.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
+        
+        setPosts(sortedPosts);
       } catch (error) {
         console.error("Error fetching posts:", error);
       }

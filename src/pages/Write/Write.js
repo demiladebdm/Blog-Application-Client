@@ -19,6 +19,8 @@ const Write = () => {
   const [titleError, setTitleError] = useState("");
   const [categoryError, setCategoryError] = useState("");
   const [descError, setDescError] = useState("");
+  const [isImageLoading, setIsImageLoading] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   //   const { user } = useContext(Context);
 
   // Access the user's token from the Redux store
@@ -83,11 +85,21 @@ const Write = () => {
     } catch (error) {
       console.error("Error uploading image to Cloudinary:", error);
       toast.error(error.message);
+    } finally {
+      setIsImageLoading(false); // Set loading state to false after image is loaded
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Check if already submitting
+    if (isSubmitting) {
+      return;
+    }
+
+    // Set submitting status to true
+    setIsSubmitting(true);
 
     // Clear previous errors
     setTitleError("");
@@ -112,6 +124,7 @@ const Write = () => {
 
     // Check if there are any validation errors
     if (titleError || categoryError || fileError || descError) {
+      setIsSubmitting(false);
       return;
     }
 
@@ -140,6 +153,17 @@ const Write = () => {
       console.log("Post created:", responseData);
 
       toast.success("Post created");
+
+      // Reset form fields
+      setCloudinaryUrl("");
+      setTitle("");
+      setDesc("");
+      setCategories([]);
+      setFileError("");
+      setTitleError("");
+      setCategoryError("");
+      setDescError("");
+
       setTimeout(() => {
         navigate(`/blog?cat=${categories}`);
       }, 1000);
@@ -147,6 +171,9 @@ const Write = () => {
       console.error("Error creating post:", error);
       console.error("Error creating post message:", error.message);
       toast.error(error.message);
+    } finally {
+      // Set submitting status to false after submission or error
+      setIsSubmitting(false);
     }
   };
 
@@ -154,11 +181,28 @@ const Write = () => {
     <section className="write">
       <Suspense fallback={<Loader />}>
         <form className="write__form" onSubmit={handleSubmit}>
-          {cloudinaryUrl && (
+          {/* {cloudinaryUrl && (
             <section className="uploaded__image">
               <img src={cloudinaryUrl} alt="Title" />
             </section>
+          )} */}
+          {!cloudinaryUrl && isImageLoading && (
+            <section className="uploading__image">
+              {/* Add your loading icon or message here */}
+              <Loader />
+            </section>
           )}
+
+          {cloudinaryUrl && (
+            <section className="uploaded__image">
+              <img
+                src={cloudinaryUrl}
+                alt="Title"
+                onLoad={() => setIsImageLoading(false)}
+              />
+            </section>
+          )}
+          
           <section className="write__form__head">
             <span>Image</span>
             <label htmlFor="file__input">
@@ -218,9 +262,14 @@ const Write = () => {
             {descError && <p className="desc__error__message">{descError}</p>}
           </section>
 
-          <section className="write__form__button">
+          {/* <section className="write__form__button">
             <button type="submit" onClick={handleSubmit}>
               Publish
+            </button>
+          </section> */}
+          <section className="write__form__button">
+            <button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Publishing..." : "Publish"}
             </button>
           </section>
         </form>

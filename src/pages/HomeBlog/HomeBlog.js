@@ -30,9 +30,12 @@ const HomeBlog = () => {
         }
 
         const data = await response;
+        const sortedPosts = data.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        );
 
         // Extract the first few posts
-        const firstFewPosts = data.slice(0, 6);
+        const firstFewPosts = sortedPosts.slice(0, 6);
 
         setPosts(firstFewPosts);
       } catch (error) {

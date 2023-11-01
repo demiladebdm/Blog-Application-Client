@@ -258,7 +258,7 @@ const Navbar = () => {
               onClick={() => setShowNavbar(false)}
             >
               <Link className="navLinks" to="/mesh">
-                Mesh
+                Merch
               </Link>
             </li>
             {userState.userInfo ? (
