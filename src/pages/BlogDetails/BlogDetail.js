@@ -103,16 +103,16 @@ const BlogDetail = () => {
               </section>
               <section className="single__blog__details">
                 <h3 className="single__blog__title">{post.title}</h3>
-                {userToken && (
+                {userToken && post && (
                   <section className="single__blog__action">
-                    {/* <Link
+                    <Link
                       className="single__blog__action__link"
-                      to={`/edit/${post._id}`}
+                      to={`/write/${post._id}`}
                     >
                       <p>
                         <FaEdit /> Edit
                       </p>
-                    </Link> */}
+                    </Link>
                     <p
                       className="single__blog__action__button"
                       onClick={openDeleteModal}

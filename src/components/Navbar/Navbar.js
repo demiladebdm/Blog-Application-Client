@@ -83,6 +83,11 @@ const Navbar = () => {
     fetchCategories();
   }, [userToken]);
 
+  const capitalize = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
+
   return (
     <nav className="navbar">
       <section className="nav__height"></section>
@@ -126,7 +131,8 @@ const Navbar = () => {
                           to={`/blog?cat=${category.name}`}
                           className="dropdown__list__link"
                         >
-                          {category.name}
+                          {/* {category.name} */}
+                          {capitalize(category.name.replace("-", " "))}
                         </Link>
                       </li>
                     ))}
@@ -233,7 +239,8 @@ const Navbar = () => {
                     to={`/blog?cat=${category.name}`}
                     className="dropdown__list__link"
                   >
-                    {category.name}
+                    {/* {category.name} */}
+                    {capitalize(category.name.replace("-", " "))}
                   </Link>
                 </li>
               ))}

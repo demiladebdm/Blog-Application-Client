@@ -112,12 +112,13 @@
   justify-content: center;
   margin: 0 auto;
   gap: 2rem;
-  width: 100%;
+  width: 90%;
   height: 100%;
   margin-bottom: 2rem;
 }
 
 .formkit-field {
+  margin: 0 1rem;
 }
 
 .ecard__form {

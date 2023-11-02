@@ -1,7 +1,8 @@
 import React, { lazy, Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import "./App.css";
 import { Toaster } from "react-hot-toast";
+import { useParams } from "react-router-dom";
 
 import Navbar from "./components/Navbar/Navbar";
 import Chat from "./components/Chat/Chat";
@@ -34,6 +35,11 @@ const Register = lazy(() => import("./pages/Authentication/Register"));
 const Login = lazy(() => import("./pages/Authentication/Login"));
 
 function App() {
+  const BlogDetailWrapper = () => {
+    const { id } = useParams(); // Extract the postId from the route parameters
+    return <BlogDetail postId={id} />;
+  };
+
   return (
     <section className="App">
       <Router>
@@ -48,11 +54,18 @@ function App() {
               {/* <Route path="/home" element={<Home />}></Route> */}
               <Route path="/about" element={<About />}></Route>
               <Route path="/blog" element={<Blog />}></Route>
-              <Route path="/blog/:id" element={<BlogDetail />}></Route>
+              {/* <Route path="/blog/:id" element={<BlogDetail />}></Route> */}
+
+              <Route path="/blog/:id" element={<BlogDetailWrapper />} />
               <Route path="/contact" element={<Contact />}></Route>
               <Route path="/brokers" element={<Brokers />}></Route>
               <Route path="/mesh" element={<Mesh />}></Route>
-              <Route path="/write" element={<Write />}></Route>
+              {/* <Route path="/write" element={<Write />}></Route> */}
+              {/* <Route path="/write/:postId?" element={<Write />} /> */}
+              <Route
+                path="/write/:postId?"
+                element={<Write postId={useParams().postId || undefined} />} // Pass the postId as a prop
+              />
 
               <Route path="/register" element={<Register />}></Route>
               <Route path="/login" element={<Login />}></Route>

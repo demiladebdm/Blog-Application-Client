@@ -18,11 +18,15 @@
 body {
   /* width: 100%;
   padding: 0; */
+  /* overflow: hidden; */
+  /* width: 100vh; */
   margin: 0;
   font-family: "Red Hat Display", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  zoom: 1;
+  box-sizing: border-box;
+  /* border: 2px solid red; */
+  /* zoom: 0; */
   /* width: 100%;
   overflow-x: hidden;
   min-width: 650px; */
@@ -35,6 +39,10 @@ code {
 }
 
 * {
+  /* width: 100vh; */
+  /* overflow: hidden; */
+  box-sizing: border-box;
+  /* border: 4px solid blue; */
   margin: 0;
   padding: 0;
 }

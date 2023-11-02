@@ -56,7 +56,7 @@ const Footer = () => {
           ))}
         </p>
         <p className="footer-company-name">
-          Copyright © 2021 <strong>Wolstreet Finance</strong> All rights
+          Copyright © 2023 <strong>Wolstreet Finance</strong> All rights
           reserved
         </p>
       </div>

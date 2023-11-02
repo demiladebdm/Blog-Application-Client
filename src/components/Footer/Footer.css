@@ -1,5 +1,5 @@
 footer {
-  width: 100%;
+  width: 100vh;
   /* min-width: 895px; */
   overflow: hidden;
   position: relative;
@@ -164,7 +164,7 @@ footer {
 }
 
 .footer-links a:hover {
-  color: #3f71ea;
+  color: var(--primary);
 }
 
 @media (max-width: 880px) {
@@ -172,7 +172,7 @@ footer {
   .footer-distributed .footer-center,
   .footer-distributed .footer-right {
     display: block;
-    width: 100%;
+    width: 100vh;
     margin-bottom: 40px;
     text-align: center;
   }
