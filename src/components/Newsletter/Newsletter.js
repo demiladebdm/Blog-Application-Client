@@ -141,7 +141,7 @@ const Newsletter = ({ showPopup, handleClosePopup }) => {
 
           <form
             action="https://app.convertkit.com/forms/5770145/subscriptions"
-            className="seva-form formkit-form"
+            className="newsletter__seva-form newsletter__formkit-form"
             method="post"
             data-sv-form="5770145"
             data-uid="d60b4cdb90"
@@ -150,20 +150,20 @@ const Newsletter = ({ showPopup, handleClosePopup }) => {
             data-options='{"settings":{"after_subscribe":{"action":"redirect","success_message":"Success! Now check your email to confirm your subscription.","redirect_url":""},"analytics":{"google":null,"fathom":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"modal":{"trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"powered_by":{"show":true,"url":"https://convertkit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic"},"recaptcha":{"enabled":false},"return_visitor":{"action":"show","custom_content":""},"slide_in":{"display_in":"bottom_right","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"sticky_bar":{"display_in":"top","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15}},"version":"5"}'
             min-width="400 500 600 700 800"
           >
-            <section data-style="clean">
+            <section data-style="newsletter__clean">
               <ul
-                className="formkit-alert formkit-alert-error"
+                className="newsletter__formkit-alert newsletter__formkit-alert-error"
                 data-element="errors"
                 data-group="alert"
               ></ul>
               <section
                 data-element="fields"
                 data-stacked="false"
-                className="seva-fields formkit-fields"
+                className="newsletter__seva-fields newsletter__formkit-fields"
               >
-                <section className="formkit-field">
+                <section className="newsletter__formkit-field">
                   <input
-                    className="formkit-input newsletter__input"
+                    className="newsletter__formkit-input newsletter__newsletter__input"
                     name="email_address"
                     aria-label="Email Address"
                     placeholder="Email Address"
@@ -173,9 +173,9 @@ const Newsletter = ({ showPopup, handleClosePopup }) => {
                 </section>
                 <button
                   data-element="submit"
-                  className="formkit-submit formkit-submit"
+                  className="newsletter__formkit-submit newsletter__formkit-submit"
                 >
-                  <section className="formkit-spinner">
+                  <section className="newsletter__formkit-spinner">
                     <section></section>
                     <section></section>
                     <section></section>
@@ -183,10 +183,7 @@ const Newsletter = ({ showPopup, handleClosePopup }) => {
                   <span>Yes, I Want!</span>
                 </button>
               </section>
-              <section
-                className="formkit-powered-by-convertkit-container"
-              >
-              </section>
+              <section className="newsletter__formkit-powered-by-convertkit-container"></section>
             </section>
           </form>
         </section>

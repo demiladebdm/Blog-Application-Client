@@ -5,7 +5,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 80vh;
+  height: 90vh;
   width: 90%;
   max-width: 800px;
   box-shadow: 0 40px 40px rgba(0, 0, 0, 0.5);
@@ -13,6 +13,7 @@
   border-radius: 20px;
   padding: 2rem 0;
   z-index: 900;
+  /* border: 2px solid red; */
 }
 
 .ecard .show {
@@ -20,12 +21,14 @@
 }
 
 .ecard__content {
+  /* border: 12px solid red; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
   width: 100%;
+  box-sizing: border-box;
   /* gap: 1rem; */
 }
 
@@ -55,7 +58,7 @@
 .ecard__top {
   width: 100%;
   /* border: 2px solid green; */
-  height: 90%;
+  height: 80%;
 }
 
 .ecard__top__image {
@@ -65,7 +68,7 @@
   /* background: red; */
   /* width: 100%;
     height: 100%; */
-    margin-top: -4rem;
+    margin-top: -5rem;
 }
 
 .ecard__top__image img {
@@ -75,8 +78,10 @@
 }
 
 .ecard__middle {
+  /* border: 3px solid red; */
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
 }
 
 .ecard__bottom {
@@ -85,6 +90,7 @@
 }
 
 .formkit-form {
+  /* border: 3px solid green; */
   width: 100%;
   height: 100%;
   display: flex;
@@ -106,6 +112,7 @@
 }
 
 .formkit-fields {
+  /* border: 3px solid green; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -129,6 +136,7 @@
   border: none;
   font-size: 1.2rem;
   box-sizing: border-box;
+  /* border: 2px solid red; */
 }
 
 .formkit-submit {
