@@ -82,6 +82,7 @@
   justify-content: center;
   /* border: 2px solid green; */
   border-radius: 1.2rem;
+  min-width: 700px;
 }
 
 .popup__overlay__content .top__input section {
@@ -132,6 +133,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  min-width: 350px;
 }
 
 .top__input__right h1 {
