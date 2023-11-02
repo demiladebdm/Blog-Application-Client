@@ -381,6 +381,9 @@ const Write = () => {
     }
   };
 
+  const capitalize = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
 
 
   return (
@@ -447,8 +450,9 @@ const Write = () => {
                   value={category.name}
                   className="catValue"
                 >
-                  {category.name.charAt(0).toUpperCase() +
-                    category.name.slice(1)}
+                  {/* {category.name.charAt(0).toUpperCase() +
+                    category.name.slice(1)} */}
+                  {capitalize(category.name.replace("-", " "))}
                 </option>
               ))}
             </select>

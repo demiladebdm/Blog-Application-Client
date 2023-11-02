@@ -97,7 +97,7 @@ const Newsletter = ({ showPopup, handleClosePopup }) => {
               <ul>
                 <li>Forex</li>
                 <li>Binary Options</li>
-                <li>Economics</li>
+                <li>Economy</li>
                 <li>And much more!</li>
               </ul>
             </section>
