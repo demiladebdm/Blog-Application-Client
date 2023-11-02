@@ -121,7 +121,7 @@
     grid-column: span 1; /* Each card takes 1 column on large screens */
     width: auto;
     height: 100vh !important;
-    min-height: 1000px;
+    /* min-height: 1000px; */
     padding: auto;
     box-sizing: border-box;
   }
