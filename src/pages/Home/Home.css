@@ -140,6 +140,7 @@
 .intro__text {
   margin-bottom: 1.5rem;
   line-height: 1.8;
+  text-transform: uppercase;
 }
 
 .intro__paragraph {

@@ -43,9 +43,9 @@ const Home = () => {
         <section className="home__left">
           <span className="hello">Hello,</span>
           <span className="intro__text">
-            I'm Wolstreet <br />{" "}
-            <span className="intro__name">LEARN. TRADE.</span>{" "}
-            <span className="intro__name__span">EARN.</span> <br />
+            I'm Wolstreet <br />
+            <span className="intro__name">Finance. Trading.</span>{" "}
+            <span className="intro__name__span">Life hacks.</span> <br />
           </span>
 
           <p className="intro__paragraph">
@@ -64,14 +64,15 @@ const Home = () => {
           </p>
 
           <section className="read__more">
-            <Link className="read__more__button" to="/about">Read More</Link>
+            <Link className="read__more__button" to="/about">
+              Read More
+            </Link>
           </section>
         </section>
 
         <section className="home__right">
           <img src={bgImg} alt="Profile" />
         </section>
-
       </Suspense>
     </section>
   );

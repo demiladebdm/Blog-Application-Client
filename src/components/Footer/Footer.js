@@ -22,23 +22,23 @@ const Footer = () => {
 
   const socialMediaLinks = [
     {
-      icon: "fab fa-facebook-f",
-      link: "https://www.facebook.com/profile.php?id=61552720400660&mibextid=ZbWKwL",
+      icon: "fab fa-youtube",
+      link: "https://www.youtube.com/@WolstreetFinance",
     },
+    { icon: "fab fa-telegram", link: "https://t.me/wolstreetfinance" },
     {
       icon: "fab fa-twitter",
       link: "https://x.com/BoyHedger?t=3SC9pKJiu-28TNlOmoVD1Q&s=09",
+    },
+    {
+      icon: "fab fa-facebook-f",
+      link: "https://www.facebook.com/profile.php?id=61552720400660&mibextid=ZbWKwL",
     },
     {
       icon: "fab fa-instagram",
       link: "https://instagram.com/wolstreetfinance?utm_source=qr&igshid=MzNlNGNkZWQ4Mg==",
     },
     // { icon: "fab fa-linkedin-in", link: "#" },
-    { icon: "fab fa-telegram", link: "https://t.me/wolstreetfinance" },
-    {
-      icon: "fab fa-youtube",
-      link: "https://www.youtube.com/@WolstreetFinance",
-    },
   ];
 
   return (
@@ -73,11 +73,14 @@ const Footer = () => {
       <div className="footer-right">
         <p className="footer-company-about">
           <span>About the company</span>
-          <strong>Wolstreet Finance</strong> is a platform showcasing insightful
-          content on financial markets, offering trading strategies, market
-          analyses, and investment insights. Explore various trading techniques,
-          stay informed about market trends, and enhance your trading skills
-          with Wolstreet Finance.
+          <strong>Wolstreet Finance</strong> is a platform created for
+          struggling traders and finance enthusiasts.
+          <br />
+          I am an independent forex trader and an Economist acting as the bridge
+          between the wall street and the main street.
+          <br />
+          My job is to break the big wall street talks around trading and the
+          global economy into easy bits for you.
         </p>
         <div className="footer-icons">
           <section className="social-icons">

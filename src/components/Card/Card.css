@@ -18,7 +18,7 @@
 .card__all__content {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-gap: 2rem;
+  grid-gap: 1rem;
   height: 100%;
   width: 100%;
   padding: 2rem;
@@ -30,9 +30,10 @@
   color: var(--white);
   grid-column: span 1; /* Each card takes 1 column by default */
   margin: 1rem auto;
+  padding: auto;
   width: 90%;
   max-width: 600px;
-  min-height: 500px;
+  /* min-height: 500px; */
   display: grid;
   grid-gap: 20px;
   /* background-color: #fff; */
@@ -41,6 +42,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease-in-out;
+  box-sizing: border-box;
 }
 
 .card__container:hover {
@@ -123,6 +125,7 @@
 
   .card__all__content {
     grid-template-columns: repeat(2, 1fr); /* Two columns on large screens */
+     grid-gap: 1rem;
   }
 
   /* .card__container__title {
