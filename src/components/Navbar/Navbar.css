@@ -7,7 +7,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100vh;
+  width: 100%;
+  box-sizing: border-box;
   /* overflow: hidden; */
   height: 15vh;
   z-index: 900;
@@ -128,6 +129,7 @@
 @media screen and (min-width: 870px) {
   .navbar {
     width: 100%;
+    box-sizing: border-box;
     /* position: fixed; */
     height: 15vh;
     /* top: 0; */
@@ -137,6 +139,7 @@
 @media screen and (max-width: 870px) {
   .navbar {
     width: 100%;
+    box-sizing: border-box;
     position: fixed;
     height: 15vh;
     top: 0;
@@ -158,6 +161,7 @@
     height: 100%;
     /* width: 12%; */
     width: 100%;
+    box-sizing: border-box;
   }
 
   .navbar2__center .hamburger {
