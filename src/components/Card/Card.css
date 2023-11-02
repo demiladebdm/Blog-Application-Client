@@ -33,7 +33,7 @@
   padding: auto;
   width: 90%;
   max-width: 600px;
-  /* min-height: 500px; */
+  min-height: 500px;
   display: grid;
   grid-gap: 20px;
   /* background-color: #fff; */
@@ -121,6 +121,9 @@
     grid-column: span 1; /* Each card takes 1 column on large screens */
     width: auto;
     height: 100vh !important;
+    min-height: 500px;
+    padding: auto;
+    box-sizing: border-box;
   }
 
   .card__all__content {
