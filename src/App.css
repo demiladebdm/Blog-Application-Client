@@ -31,8 +31,8 @@
     /* box-sizing: border-box; */
   }
   .content {
-    width: 100%;
-    min-width: 700px;
+    /* width: 100%;
+    min-width: 700px; */
     margin-top: 14vh;
     box-sizing: border-box;
     /* width: 100%;
