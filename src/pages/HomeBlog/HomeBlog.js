@@ -53,7 +53,7 @@ const HomeBlog = () => {
   return (
     <section className="blogs">
       <Suspense fallback={<Loader />}>
-        <section className="blog__container">
+        <section className="home__blog__container">
           {posts.length === 0 ? (
             <p>Sorry, there is no stories yet for this category</p>
           ) : (
