@@ -132,15 +132,15 @@
   margin: 1.5rem 0;
 }
 
-.intro__name__span {
-  color: var(--primary);
-  margin-bottom: 1.5rem;
-}
-
 .intro__text {
   margin-bottom: 1.5rem;
   line-height: 1.8;
   text-transform: uppercase;
+}
+
+.intro__name__span {
+  color: var(--primary);
+  margin-bottom: 1.5rem;
 }
 
 .intro__paragraph {

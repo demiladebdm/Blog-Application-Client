@@ -15,9 +15,19 @@
   animation: spin 1s linear infinite;
 }
 
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid red;
+    width: 100vh;
+    /* overflow: auto; */
+    box-sizing: border-box;
+  }
+
 @media screen and (max-width: 870px) {
   .App {
-    width: 100%;
+    /* width: 100%; */
     /* box-sizing: border-box; */
   }
   .content {

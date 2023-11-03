@@ -57,11 +57,11 @@ const HomePage = () => {
         </Suspense>
       )} */}
 
-          <Newsletter
+          {/* <Newsletter
             className="showPopupHomepage"
             showPopup={showPopup}
             handleClosePopup={handleClosePopup}
-          />
+          /> */}
           
       <Home />
       <Suspense fallback={<Loader />}>
