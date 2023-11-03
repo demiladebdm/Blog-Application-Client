@@ -43,9 +43,9 @@ function App() {
   return (
     <section className="App">
       <Router>
-        <div style={{ zIndex: "888" }}>
+        {/* <div style={{ zIndex: "888" }}>
           <Navbar />
-        </div>
+        </div> */}
 
         <div className="content">
           <Suspense fallback={<Loader />}>
