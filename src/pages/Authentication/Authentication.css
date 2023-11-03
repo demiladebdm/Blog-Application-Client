@@ -6,7 +6,7 @@
   width: 100%;
   height: calc(100vh - 14vh);
   /* background: var(--theme); */
-  min-width: 700px;
+  /* min-width: 700px; */
 }
 
 .login__card {

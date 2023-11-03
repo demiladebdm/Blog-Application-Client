@@ -7,7 +7,8 @@
   transform: translate(-50%, -50%);
   height: 90vh;
   width: 90%;
-  max-width: 800px;
+  /* max-height: 800px;
+  min-width: 700px; */
   box-shadow: 0 40px 40px rgba(0, 0, 0, 0.5);
   border: 0.5rem solid var(--white);
   border-radius: 20px;
@@ -29,6 +30,7 @@
   height: 100%;
   width: 100%;
   box-sizing: border-box;
+  min-width: 700px;
   /* gap: 1rem; */
 }
 

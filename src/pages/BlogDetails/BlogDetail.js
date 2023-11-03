@@ -12,7 +12,7 @@ import httpClient from "../../service/httpClient";
 // import BlogImg from "../../assets/test_image.jpeg";
 import "./BlogDetail.css";
 import Loader from "../../components/Loader/Loader";
-import SocialShareButtons from "../../components/SocialAhareButtons/SocialShareButtons";
+import SocialShareButtons from "../../components/SocialShareButtons/SocialShareButtons";
 
 const BlogDetail = () => {
   // const url = "http://localhost:5000/api";
