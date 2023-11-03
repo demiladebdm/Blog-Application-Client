@@ -5,13 +5,16 @@
 }
 
 .about__container {
-  width: calc(80vw - 4rem);
+  /* border: 2px solid red; */
+  width: 100%;
+  /* width: calc(80vw - 4rem); */
   height: 100%;
 }
 
 .about__container {
   margin-bottom: 2rem;
-  width: calc(100% - 3rem);
+  width: 100%;
+  /* width: calc(100% - 3rem); */
   padding: 0 2rem;
 }
 

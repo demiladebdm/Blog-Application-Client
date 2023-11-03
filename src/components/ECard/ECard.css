@@ -1,177 +1,143 @@
 .ecard {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: 10rem;
+  /* margin: auto; */
+  box-sizing: border-box;
+  z-index: 20;
+}
+
+.ecard__popup__body {
+  border: 4px solid var(--white);
+  border-radius: 4px;
   background: var(--theme);
   color: var(--white);
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 90vh;
-  width: 90%;
-  /* max-height: 800px;
-  min-width: 700px; */
-  box-shadow: 0 40px 40px rgba(0, 0, 0, 0.5);
-  border: 0.5rem solid var(--white);
-  border-radius: 20px;
-  padding: 2rem 0;
-  z-index: 900;
-  /* border: 2px solid red; */
-}
-
-.ecard .show {
-  opacity: 1;
-}
-
-.ecard__content {
-  /* border: 12px solid red; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  box-sizing: border-box;
-  /* min-width: 700px; */
-  /* gap: 1rem; */
+  width: 40%;
+  height: 90%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin: auto;
+  min-width: 500px;
 }
 
 .close__button {
-  position: absolute;
-  height: 8vh;
-  width: 8vh;
-  top: 0;
-  right: 0;
-  background: none;
   cursor: pointer;
+  width: 100%;
+  text-align: right;
 }
 
 .close__button button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
+  width: 2rem;
+  height: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
   background: none;
   border: none;
-  cursor: pointer;
-  font-size: 2rem;
-  color: white;
+  color: var(--white);
+}
+
+.ecard__content {
+  width: 100%;
+  margin-top: -2rem;
+  height: 100%;
+  border: 2px solid transparent;
+  /* border: transparent; */
+  box-sizing: border-box;
+  /* overflow: hidden; */
 }
 
 .ecard__top {
   width: 100%;
-  /* border: 2px solid green; */
-  height: 80%;
-}
-
-.ecard__top__image {
+  box-sizing: border-box;
+  height: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* background: red; */
-  /* width: 100%;
-    height: 100%; */
-    margin-top: -5rem;
+  margin-top: -4rem;
 }
 
-.ecard__top__image img {
-  object-fit: contain;
-  width: 38%;
-  /* height: 32%; */
+.ecard__top img {
+  width: 40%;
+  min-width: 300px;
+  height: 100%;
+  margin: 0 auto;
 }
 
 .ecard__middle {
-  /* border: 3px solid red; */
+  width: 100%;
+  box-sizing: border-box;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ecard__middle form {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5rem;
   box-sizing: border-box;
+}
+
+.ecard__middle__title {
+  width: 100%;
+  font-size: 1.6rem;
+}
+
+.ecard__clean {
+  width: 100%;
+  height: 100%;
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem; */
+}
+
+.ecard__formkit__field {
+  width: 100%;
+}
+
+.ecard__formkit__field input {
+  width: 60%;
+  height: 2rem;
+  border: none;
+  box-sizing: border-box;
+  padding: 0 1.5rem;
+  border-radius: 4px;
+  margin-bottom: 0.2rem;
+}
+
+.ecard__formkit__submit {
+  width: 60%;
+  height: 2rem;
+  border: none;
+  font-weight: 600;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background: var(--primary);
+  color: var(--white);
 }
 
 .ecard__bottom {
   width: 100%;
-  height: 100%;
-}
-
-.formkit-form {
-  /* border: 3px solid green; */
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.formkit-form h1 {
-  font-size: 1.5rem;
-  text-align: center;
-  margin: auto;
-}
-
-.formkit-alert-error {
-}
-
-.clean {
-  width: 100%;
-}
-
-.formkit-fields {
-  /* border: 3px solid green; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  gap: 2rem;
-  width: 90%;
-  height: 100%;
-  margin-bottom: 2rem;
-}
-
-.formkit-field {
-  margin: 0 1rem;
-}
-
-.ecard__form {
-  width: 100%;
-  height: 3rem;
-  border-radius: 8px;
-  padding: 0 1rem;
-  border: none;
-  font-size: 1.2rem;
+  height: 30%;
   box-sizing: border-box;
-  /* border: 2px solid red; */
-}
-
-.formkit-submit {
-  width: 34%;
-  max-width: 40%;
-  height: 3rem;
-  border-radius: 8px;
-  border: none;
-  background: var(--primary);
-  color: var(--white);
-  font-size: 1.5rem;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.ecard__bottom__title {
-  text-align: center;
-  font-size: 1.5rem;
-  margin: 0.5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+  padding-left: 1rem;
+  /* min-width: 700px; */
 }
 
 .ecard__bottom__list ul {
   list-style: none;
-  padding: 0.5rem 1rem;
-}
-
-.ecard__bottom__list ul li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-
-.ecard__bottom__list ul li svg {
-  margin-right: 1rem;
-  flex-shrink: 0;
 }

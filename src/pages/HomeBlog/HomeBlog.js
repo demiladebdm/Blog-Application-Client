@@ -1,23 +1,15 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { useLocation } from "react-router";
 import { useNavigate } from "react-router-dom";
-
-// import HeaderImg from "../../assets/test_header.jpeg";
-// import BlogImg from "../../assets/test_image.jpeg";
 import "./HomeBlog.css";
 import Loader from "../../components/Loader/Loader";
 import { useSelector } from "react-redux";
-// import { authService } from "../../service/authService";
 import httpClient from "../../service/httpClient";
-// import parseJsonToHtml from "../../utils/parseJsonToHtml";
 
 const HomeBlog = () => {
   const navigate = useNavigate();
-  // const url = process.env.REACT_APP_API_URL;
   const [posts, setPosts] = useState([]);
   const { search } = useLocation();
-
-  // Access the user's token from the Redux store
   const userToken = useSelector((state) => state.user.userInfo?.token);
 
   useEffect(() => {
@@ -34,7 +26,8 @@ const HomeBlog = () => {
           (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
         );
 
-        // Extract the first few posts
+        console.log("Sorted Posts:", sortedPosts); // Add this line
+
         const firstFewPosts = sortedPosts.slice(0, 6);
 
         setPosts(firstFewPosts);
@@ -58,11 +51,11 @@ const HomeBlog = () => {
     <section className="blogs">
       <Suspense fallback={<Loader />}>
         <section className="home__blog__container">
-          {firstFewPosts.length === 0 ? (
-            <p>Sorry, there is no stories yet for this category</p>
+          {posts.length === 0 ? (
+            <p>Sorry, there are no stories yet for this category</p>
           ) : (
-            firstFewPosts.map((post) => (
-              <article key={post._id} className="blog">
+            posts.map((post) => (
+              <article key={post._id} className="hero__blog">
                 <Suspense fallback={<Loader />}>
                   <section className="blog__img">
                     <img src={post.photo} alt="Blog" />
@@ -70,10 +63,11 @@ const HomeBlog = () => {
                   <section className="blog__details">
                     <h3 className="blog__title">{post.title}</h3>
                     <h4 className="blog__category">
-                      {/* {post.categories
-                        ?.map((category) => category.name)
-                        .join(", ")}{" "} */}
-                      {capitalize(category.name.replace("-", " "))}
+                      {post.categories
+                        ?.map((category) =>
+                          capitalize(category.name.replace("-", " "))
+                        )
+                        .join(", ")}{" "}
                       <span>{new Date(post.createdAt).toDateString()}</span>
                     </h4>
                     <p

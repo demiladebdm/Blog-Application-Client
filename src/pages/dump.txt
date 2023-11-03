@@ -1,0 +1,691 @@
+import React from "react";
+
+import "./ECard.css";
+import EBookImg from "../../assets/newsletter-ebook.png";
+
+const ECard = ({ showPopup, handleClosePopup, selectedImage }) => {
+  const bookItems = [
+    "Reveal the unfiltered truth about trading",
+    "Show you the proper mindset pro traders have",
+    "Teach you how you can profit in Bull and Bear markets, even in a recession",
+    "Expose the sham of market gurus and how you can escape from their sham",
+  ];
+
+  return (
+    <section className={`ecard ${showPopup ? "show" : ""}`}>
+      <div className="close__button">
+        <button onClick={handleClosePopup}>X</button>
+      </div>
+      <section className="ecard__content">
+        <section className="ecard__top">
+          <section className="ecard__top__image">
+            {/* <img src={EBookImg} /> */}
+            <img src={selectedImage || EBookImg} alt="EBook" />
+            {/* <img src={selectedImage} alt="EBook" /> */}
+          </section>
+        </section>
+
+        <section className="ecard__middle">
+          <form
+            action="https://app.convertkit.com/forms/5770145/subscriptions"
+            className="seva-form formkit-form"
+            method="post"
+            data-sv-form="5770145"
+            data-uid="d60b4cdb90"
+            data-format="inline"
+            data-version="5"
+            data-options='{"settings":{"after_subscribe":{"action":"redirect","success_message":"Success! Now check your email to confirm your subscription.","redirect_url":""},"analytics":{"google":null,"fathom":null,"facebook":null,"segment":null,"pinterest":null,"sparkloop":null,"googletagmanager":null},"modal":{"trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"powered_by":{"show":true,"url":"https://convertkit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic"},"recaptcha":{"enabled":false},"return_visitor":{"action":"show","custom_content":""},"slide_in":{"display_in":"bottom_right","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15},"sticky_bar":{"display_in":"top","trigger":"timer","scroll_percentage":null,"timer":5,"devices":"all","show_once_every":15}},"version":"5"}'
+            min-width="400 500 600 700 800"
+          >
+            <h1>Enter your email below to get instant access</h1>
+            <section data-style="clean" className="clean">
+              <ul
+                className="formkit-alert formkit-alert-error"
+                data-element="errors"
+                data-group="alert"
+              ></ul>
+              <section
+                data-element="fields"
+                data-stacked="false"
+                className="seva-fields formkit-fields"
+              >
+                <section className="formkit-field">
+                  <input
+                    className="formkit-input ecard__form"
+                    name="email_address"
+                    aria-label="Email Address"
+                    placeholder="Enter your Email Address"
+                    required=""
+                    type="email"
+                  />
+                </section>
+                <button
+                  data-element="submit"
+                  className="formkit-submit formkit-submit"
+                >
+                  <section className="formkit-spinner">
+                    <section></section>
+                    <section></section>
+                    <section></section>
+                  </section>
+                  <span>Yes, I Want!</span>
+                </button>
+              </section>
+              <section className="formkit-powered-by-convertkit-container"></section>
+            </section>
+          </form>
+        </section>
+
+        <section className="ecard__bottom">
+          <section className="ecard__bottom__title">This book will:</section>
+          <section className="ecard__bottom__list">
+            <ul>
+              {bookItems.map((item, index) => (
+                <li key={index}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    style={{ color: "green", fontWeight: "bold" }}
+                  >
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      fill="green"
+                      d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+                    />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </section>
+        </section>
+      </section>
+    </section>
+  );
+};
+
+export default ECard;
+
+
+.ecard {
+  background: var(--theme);
+  color: var(--white);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 90vh;
+  width: 90%;
+  /* max-height: 800px;
+  min-width: 700px; */
+  box-shadow: 0 40px 40px rgba(0, 0, 0, 0.5);
+  border: 0.5rem solid var(--white);
+  border-radius: 20px;
+  padding: 2rem 0;
+  z-index: 900;
+  /* border: 2px solid red; */
+}
+
+.ecard .show {
+  opacity: 1;
+}
+
+.ecard__content {
+  /* border: 12px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  /* min-width: 700px; */
+  /* gap: 1rem; */
+}
+
+.close__button {
+  position: absolute;
+  height: 8vh;
+  width: 8vh;
+  top: 0;
+  right: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.close__button button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  color: white;
+}
+
+.ecard__top {
+  width: 100%;
+  /* border: 2px solid green; */
+  height: 80%;
+}
+
+.ecard__top__image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: red; */
+  /* width: 100%;
+    height: 100%; */
+    margin-top: -5rem;
+}
+
+.ecard__top__image img {
+  object-fit: contain;
+  width: 38%;
+  /* height: 32%; */
+}
+
+.ecard__middle {
+  /* border: 3px solid red; */
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.ecard__bottom {
+  width: 100%;
+  height: 100%;
+}
+
+.formkit-form {
+  /* border: 3px solid green; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.formkit-form h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: auto;
+}
+
+.formkit-alert-error {
+}
+
+.clean {
+  width: 100%;
+}
+
+.formkit-fields {
+  /* border: 3px solid green; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 2rem;
+  width: 90%;
+  height: 100%;
+  margin-bottom: 2rem;
+}
+
+.formkit-field {
+  margin: 0 1rem;
+}
+
+.ecard__form {
+  width: 100%;
+  height: 3rem;
+  border-radius: 8px;
+  padding: 0 1rem;
+  border: none;
+  font-size: 1.2rem;
+  box-sizing: border-box;
+  /* border: 2px solid red; */
+}
+
+.formkit-submit {
+  width: 34%;
+  max-width: 40%;
+  height: 3rem;
+  border-radius: 8px;
+  border: none;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ecard__bottom__title {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 0.5rem auto;
+}
+
+.ecard__bottom__list ul {
+  list-style: none;
+  padding: 0.5rem 1rem;
+}
+
+.ecard__bottom__list ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.ecard__bottom__list ul li svg {
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+
+
+
+
+.popup__overlay {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 95vh;
+  /* min-width: 700px; */
+  /* height: auto; */
+  background: var(--theme);
+  color: var(--white);
+  z-index: 999;
+  padding: 0 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
+}
+
+.popup__overlay.show {
+  display: flex;
+}
+
+.popup__overlay .newsletter__ecard__content {
+  width: 100%;
+  /* max-width: 700px; */
+  height: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  /* box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close__button {
+  text-align: right;
+}
+
+.close__button button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.newsletter__ecard__top__image {
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  /* min-width: 500px; */
+  text-align: center;
+}
+
+.newsletter__ecard__top__image img {
+  width: 40%;
+  /* min-height: 400px; */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.newsletter__ecard__middle {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 10%;
+  text-align: center;
+}
+
+.newsletter__ecard__middle h1 {
+  margin-bottom: 10px;
+}
+
+.newsletter__formkit-form {
+  font-size: 1.5rem;
+}
+
+.newsletter__ecard__form {
+  width: 57%;
+  height: 2.5rem;
+  box-sizing: border-box;
+  padding: 0 1rem;
+  border-radius: 4px;
+  border: none;
+}
+
+.newsletter__formkit-submit {
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 55%;
+  border-radius: 4px;
+  height: 2rem;
+  margin-top: 0.5rem;
+  border: none;
+  background: var(--primary);
+  color: var(--white);
+}
+
+.newsletter__seva-form {
+  width: 100%; /* Adjust as needed */
+  box-sizing: border-box;
+}
+
+.newsletter__ecard__bottom {
+  margin-top: 20px;
+  text-align: left;
+  width: 100%;
+}
+
+.newsletter__ecard__bottom__title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.newsletter__ecard__bottom__list {
+  margin-top: 10px;
+}
+
+.newsletter__ecard__bottom__list ul {
+  padding: 0;
+  list-style: none;
+}
+
+.newsletter__ecard__bottom__list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.newsletter__ecard__bottom__list svg {
+  margin-right: 10px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .popup__overlay .newsletter__ecard__content {
+    /* max-width: 95%; */
+  }
+
+  .newsletter__ecard__top__image img {
+    /* max-height: 300px; */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .newsletter__ecard__middle {
+    /* height: auto; */
+  }
+
+  .newsletter__ecard__middle h1 {
+    font-size: 1.5rem;
+  }
+
+  .newsletter__ecard__form {
+    width: 100%;
+  }
+
+  .newsletter__formkit-submit {
+    width: 80%;
+  }
+}
+
+
+import React from "react";
+import { Link } from "react-router-dom";
+
+import "./Card.css";
+import CardImage from "../../assets/newsletter-ebook.png";
+import CardImagePaid from "../../assets/newsletter-ebook-paid.png";
+
+const Card = ({ showPopupPage }) => {
+  const cardData = [
+    {
+      image: CardImage,
+      title: "NOT THE HOLY GRAIL",
+      description:
+        "Get insight into the inner workings of the trading world. A must read for every trader.",
+      link: "/your-guide-link1",
+      buttonText: "Access the guide now",
+      buttonSpan: "(Free)",
+    },
+    {
+      image: CardImagePaid,
+      title: "PRICE ACTION TRADING HACKED",
+      description:
+        "Discover the secret to price action trading including over 30 proprietary candlesticks patterns that could help you beat the market.",
+      link: "/your-guide-link2",
+      buttonText: "I want",
+      buttonSpan: "($29.99)",
+    },
+  ];
+
+  const handleButtonClick = (image) => {
+    showPopupPage(image);
+  };
+
+  return (
+    <section className="card">
+      <section className="card__title">
+        <h1>What do you want to learn</h1>
+      </section>
+      <section className="card__all__content">
+        {cardData.map((card, index) => (
+          <section key={index} className="card__container">
+            <section className="card__container__title">{card.title}</section>
+            <section className="card__container__image">
+              <img src={card.image} alt="Card" />
+            </section>
+            <section className="card__container__desc">
+              {card.description}
+            </section>
+            <section className="card__container__button">
+              <Link
+                // to={card.link}
+                className="card__container__button__link"
+                onClick={() => handleButtonClick(card.image)}
+              >
+                {card.buttonText} <span>{card.buttonSpan}</span>
+              </Link>
+            </section>
+          </section>
+        ))}
+      </section>
+    </section>
+  );
+};
+
+export default Card;
+
+
+
+/* Card.css */
+
+.card {
+  background: #747474;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  /* height: 100vh; */
+}
+
+.card__title {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+.card__all__content {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 1rem;
+  height: auto;
+  width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.card__container {
+  background: var(--theme);
+  color: var(--white);
+  grid-column: span 1; /* Each card takes 1 column by default */
+  margin: 1rem auto;
+  padding: auto;
+  width: 90%;
+  /* max-width: 600px;
+  min-height: 500px; */
+  display: grid;
+  grid-gap: 20px;
+  /* background-color: #fff; */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+
+.card__container:hover {
+  transform: translateY(-5px);
+}
+
+.card__container__title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  /* color: #333; */
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* border: 4px solid red; */
+  width: 100%;
+  max-width: 990px;
+}
+
+.card__container__image {
+  /* border: 4px solid purple; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  /* max-width: 20%; */
+  height: 40vh;
+  /* max-height: 20%; */
+}
+
+.card__container__image img {
+  object-fit: contain;
+  height: 400px;
+  width: 400px;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+.card__container__desc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  padding: 15px;
+  /* color: #666; */
+}
+
+.card__container__button {
+  margin-top: 15px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.card__container__button__link {
+  display: inline-block;
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  background: var(--primary);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card__container__button__link:hover {
+  background-color: #0056b3;
+}
+
+@media (min-width: 768px) {
+  .card__container {
+    grid-column: span 1; /* Each card takes 1 column on large screens */
+    width: auto;
+    /* height: 70vh !important; */
+    /* min-height: 1000px; */
+    padding: auto;
+    box-sizing: border-box;
+  }
+
+  .card__all__content {
+    grid-template-columns: repeat(2, 1fr); /* Two columns on large screens */
+     grid-gap: 1rem;
+  }
+
+  /* .card__container__title {
+    margin: unset;
+    padding: unset;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  } */
+}
+
+@media only screen and (max-width: 860px) {
+  .card__container {
+    grid-column: span 2; /* Each card takes 1 column on large screens */
+    width: auto;
+    height: 70vh !important;
+    /* min-height: 1000px; */
+    padding: 1rem;
+    box-sizing: border-box;
+    /* border: 4px solid red; */
+  }
+
+  .card__all__content {
+    grid-template-columns: repeat(2, 1fr); /* Two columns on large screens */
+     grid-gap: 1rem;
+  }
+}
+
+
+
+
