@@ -24,8 +24,8 @@
 }
 
 .editor img {
-    max-width: 20rem; /* Ensure images don't exceed the container width */
-    height: 20rem;    /* Maintain aspect ratio */
+    max-width: 20rem;
+    height: 20rem;
     margin: 1rem 0 1rem 1.5rem; 
     object-fit: cover;
     display: block;
