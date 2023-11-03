@@ -7,7 +7,7 @@
   background: var(--white);
   color: var(--theme);
   padding-bottom: 4rem;
-  min-width: 700px;
+  /* min-width: 700px; */
 }
 
 .write__form {

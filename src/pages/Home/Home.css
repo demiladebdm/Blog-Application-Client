@@ -200,11 +200,11 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    min-width: 700px;
+    /* min-width: 700px; */
     overflow: none;
   }
   .home__left {
-    min-width: 700px;
+    /* min-width: 700px; */
     width: 100%;
     margin: 0 auto;
     padding: 0 1rem;
@@ -215,7 +215,7 @@
     justify-content: center; */
   }
   .home__right {
-    min-width: 700px;
+    /* min-width: 700px; */
     width: 100%;
     margin: 0 auto;
     padding: 0 1rem;
