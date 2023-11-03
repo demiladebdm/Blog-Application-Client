@@ -46,6 +46,10 @@ const HomeBlog = () => {
     fetchPosts();
   }, [search, userToken]);
 
+  const capitalize = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
   const handleReadMore = (postId) => {
     navigate(`/blog/${postId}`);
   };
@@ -54,10 +58,10 @@ const HomeBlog = () => {
     <section className="blogs">
       <Suspense fallback={<Loader />}>
         <section className="home__blog__container">
-          {posts.length === 0 ? (
+          {firstFewPosts.length === 0 ? (
             <p>Sorry, there is no stories yet for this category</p>
           ) : (
-            posts.map((post) => (
+            firstFewPosts.map((post) => (
               <article key={post._id} className="blog">
                 <Suspense fallback={<Loader />}>
                   <section className="blog__img">
@@ -66,9 +70,10 @@ const HomeBlog = () => {
                   <section className="blog__details">
                     <h3 className="blog__title">{post.title}</h3>
                     <h4 className="blog__category">
-                      {post.categories
+                      {/* {post.categories
                         ?.map((category) => category.name)
-                        .join(", ")}{" "}
+                        .join(", ")}{" "} */}
+                      {capitalize(category.name.replace("-", " "))}
                       <span>{new Date(post.createdAt).toDateString()}</span>
                     </h4>
                     <p
