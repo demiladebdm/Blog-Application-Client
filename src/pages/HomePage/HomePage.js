@@ -37,6 +37,7 @@ const HomePage = () => {
   };
 
   const handleClosePopup = () => {
+    console.log("Close button clicked!");
     setShowPopup(false);
   };
 
@@ -56,13 +57,6 @@ const HomePage = () => {
           />
         </Suspense>
       )}
-
-          {/* <Newsletter
-            className="showPopupHomepage"
-            showPopup={showPopup}
-            handleClosePopup={handleClosePopup}
-          /> */}
-          
       <Home />
       <Suspense fallback={<Loader />}>
         <Card showPopupPage={handleShowPopupPage} />

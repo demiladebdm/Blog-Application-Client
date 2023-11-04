@@ -1,136 +1,193 @@
 .popup__overlay {
   position: fixed;
   top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 1rem;
-  box-sizing: border-box;
-  z-index: 998;
+  height: 100vh;
+  width: 100vw;
+  background: #00000061;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 }
 
 .popup__overlay__popup__body {
+  position: relative;
   border: 4px solid var(--white);
   border-radius: 4px;
   background: var(--theme);
   color: var(--white);
-  height: 100%;
+  height: 90vh;
+  width: 90vw;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  margin: auto;
-  /* min-width: 700px; */
 }
 
-/* .newsletter__close__button {
-  cursor: pointer;
-  width: 100%;
-  text-align: right;
-  z-index: 999;
+.newsletter__close__button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 2rem;
+  height: 2rem;
 }
 
 .newsletter__close__button button {
-  width: 2rem;
-  height: 2rem;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  border: none;
   font-size: 2rem;
   font-weight: 700;
   background: none;
-  border: none;
   color: var(--white);
-} */
+}
 
 .newsletter__ecard__content {
   width: 100%;
-  margin-top: -2rem;
   height: 100%;
   border: 2px solid transparent;
-  box-sizing: border-box;
 }
 
 .newsletter__ecard__top {
-  width: 100%;
-  box-sizing: border-box;
-  height: 60%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: -4rem;
+  height: 40%;
 }
 
 .newsletter__ecard__top img {
-  width: 40%;
-  min-width: 500px;
+  width: 100%;
   height: 100%;
-  margin: 0 auto;
+  object-fit: contain;
 }
 
 .newsletter__ecard__middle {
-  width: 100%;
-  box-sizing: border-box;
-  height: 20%;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
 
 .newsletter__ecard__middle form {
-  width: 100%;
-  height: 100%;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: center; */
+  /* justify-content: center; */
+  /* gap: 3rem; */
+  /* box-sizing: border-box; */
   text-align: center;
-  gap: 0.5rem;
-  box-sizing: border-box;
 }
 
 .newsletter__ecard__middle__title {
-  width: 100%;
   font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .newsletter__clean {
-  width: 100%;
-  height: 100%;
+  /* width: 100%; */
+  /* height: 100%; */
 }
 
 .newsletter__formkit__field {
-  width: 100%;
+  /* width: 100%; */
 }
 
 .newsletter__formkit__field input {
-  width: 60%;
-  height: 4rem;
+  width: 50%;
+  height: 2.5rem;
   border: none;
-  box-sizing: border-box;
   padding: 0 1.5rem;
   border-radius: 4px;
   margin-bottom: 1rem;
 }
 
 .newsletter__formkit__submit {
-  width: 60%;
-  height: 4em;
+  /* width: 60%; */
+  /* height: 2.5em; */
   border: none;
   font-weight: 600;
-  box-sizing: border-box;
   border-radius: 4px;
   background: var(--primary);
   color: var(--white);
+  padding: 0.7rem 3rem;
 }
 
 .newsletter__ecard__bottom {
-  width: 100%;
-  height: 30%;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  text-align: left;
+  margin-top: 3rem;
   padding-left: 1rem;
-  /* min-width: 700px; */
+}
+
+.svg_icon {
+  width: 20px;
 }
 
 .newsletter__ecard__bottom__list ul {
   list-style: none;
+  margin-top: 0.7rem;
+}
+
+.newsletter__ecard__bottom__list ul li {
+  display: flex;
+  align-items: start;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+@media screen and (max-width: 1280px) {
+
+  .newsletter__ecard__bottom {
+    font-size: 15px;
+  }
+
+  .newsletter__ecard__bottom {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .newsletter__ecard__middle__title {
+    font-size: 28px;
+  }
+
+  .newsletter__formkit__field input {
+    width: 80%;
+    height: 3rem;
+  }
+
+  .newsletter__formkit__submit {
+    width: 80%;
+    height: 2.5rem;
+    padding: unset;
+  }
+
+  .newsletter__ecard__bottom {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 454px) {
+  .popup__overlay__popup__body {
+    padding: 1.5rem 1rem 0;
+  }
+
+  .newsletter__ecard__top {
+    height: 30%;
+  }
+  .newsletter__ecard__middle__title {
+    font-size: 22px;
+  }
+
+  .newsletter__formkit__field input {
+    width: 80%;
+    height: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .newsletter__formkit__submit {
+    width: 80%;
+    height: 2.5rem;
+  }
+
+  .newsletter__ecard__bottom {
+    font-size: 13px;
+  }
+
+  .newsletter__ecard__bottom {
+    margin-top: 2rem;
+    padding-left: unset;
+  }
 }

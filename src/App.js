@@ -1,5 +1,10 @@
 import React, { lazy, Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useNavigate,
+} from "react-router-dom";
 import "./App.css";
 import { Toaster } from "react-hot-toast";
 import { useParams } from "react-router-dom";
@@ -43,9 +48,7 @@ function App() {
   return (
     <section className="App">
       <Router>
-        <div style={{ zIndex: "888" }}>
-          <Navbar />
-        </div>
+        <Navbar />
 
         <div className="content">
           <Suspense fallback={<Loader />}>

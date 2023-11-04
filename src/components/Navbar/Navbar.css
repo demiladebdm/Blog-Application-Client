@@ -138,16 +138,18 @@
 
 @media screen and (max-width: 870px) {
   .navbar {
+    /* margin: unset; */
     width: 100%;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     position: fixed;
     height: 15vh;
     top: 0;
   }
-
+  
   .navbar__left {
     position: fixed;
     cursor: pointer;
+    margin-left: -2rem;
     z-index: 100;
   }
 
@@ -167,7 +169,7 @@
     display: block;
     position: absolute;
     /* top: 4rem; */
-    top: 2.5rem;
+    top: 1.5rem;
     right: 1rem;
     transition: all 0.5s ease-out;
     cursor: pointer;
@@ -187,9 +189,11 @@
     gap: 3rem;
     padding: 3rem 0;
     z-index: 888;
+    list-style: none;
   }
 
   .navbar2__center__link {
+    list-style: none;
     width: 100%;
     /* background: green; */
     text-align: center;

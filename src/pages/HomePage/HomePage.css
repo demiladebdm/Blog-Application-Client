@@ -192,13 +192,6 @@
     height: auto; /* Remove fixed height on small screens */
   }
 
-  .home__left,
-  .home__right {
-    /* width: 100%; */
-    /* Remove width and margin properties */
-    /* margin: 0; */
-  }
-
   .home__left {
     font-size: 1.5rem; /* Adjust font size for smaller screens */
   }
